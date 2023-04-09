@@ -14,7 +14,7 @@ export default function HomePage() {
     const [books, setBooks] = useState([])
     const [bookInfo, setBookInfo] = useState({ ID: "-1", Name: "-1", Type: "-1", Author: "-1", Status: "-1" })
 
-    //Define table properties
+    //Define table props 
     const columns = [
         {
             name: "STT",
