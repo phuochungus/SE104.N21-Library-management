@@ -1,0 +1,72 @@
+/* General CSS-------------------------------- */
+:root {
+    /* font-family */
+    --main-font: "Anton";
+    --text-font: "Questrial";
+
+    /* font-color */
+    --main-font-color: #99413e;
+    --text-font-color: #8f3034;
+
+    /* body-color */
+    --body-color: #f9f4db;
+
+    /* side-bar-width */
+    --side-bar-width: 20%;
+
+    /* content-name-height */
+    --content-name-height: 10%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--text-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.on-display {
+    background: #ed9f5a;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.ad {
+    width: 50vw;
+    height: 50vh;
+    background: red;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+/* INPUT OPTIONS---------------------------------- */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url(./assets/icons/birth.svg);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    font-family: var(--text-font);
+    color: var(--text-font-color);
+    font-size: 16px;
+}
+
+input:focus {
+    border: white;
+    outline: none;
+}
+
+::placeholder {
+    font-family: var(--text-font);
+    color: var(--text-font-color);
+    font-size: 16px;
+}
