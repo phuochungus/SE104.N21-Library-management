@@ -5,6 +5,7 @@ import nomalize from './js/nomalize.js'
 import { BookInfo } from './js/bookInfo'
 import { CustomStyle } from './js/table_props'
 
+
 export default function HomePage() {
     //Define
     const [keyWord, setKeyWord] = useState("")
