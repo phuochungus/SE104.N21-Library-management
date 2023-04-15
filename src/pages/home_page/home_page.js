@@ -5,15 +5,21 @@ import nomalize from './js/nomalize.js'
 import { BookInfo } from './js/bookInfo'
 import { CustomStyle } from './js/table_props'
 
-
 export default function HomePage() {
-    //Define
+    //Define seacrh-tool
     const [keyWord, setKeyWord] = useState("")
     const [bookName, setBookName] = useState("")
     const [author, setAuthor] = useState("")
     const [type, setType] = useState("Thể loại")
-    const [books, setBooks] = useState([])
-    const [bookInfo, setBookInfo] = useState({ ID: "-1", Name: "-1", Type: "-1", Author: "-1", Status: "-1" })
+
+    //Define API
+    const [API] = useState(true)
+    const [bookAPI, setBookAPI] = useState([]) //original-books
+    const [books, setBooks] = useState([]) //handle-books
+
+    //Define book info
+    const [bookInfo, setBookInfo] = useState({})
+
 
     //Define table props 
     const columns = [
@@ -24,12 +30,12 @@ export default function HomePage() {
         },
         {
             name: "Mã sách",
-            selector: row => row.ID,
+            selector: row => row.bookId,
             sortable: true,
         },
         {
             name: "Tên sách",
-            selector: row => row.Name,
+            selector: row => row.name,
             sortable: true,
         },
         {
@@ -39,7 +45,7 @@ export default function HomePage() {
         },
         {
             name: "Tác giả",
-            selector: row => row.Author,
+            selector: row => row.author,
             sortable: true,
         },
         {
@@ -55,13 +61,16 @@ export default function HomePage() {
 
     //Call API
     useEffect(() => {
-        fetch('http://localhost:3000/courses')
+        fetch('https://library2.herokuapp.com/books?fbclid=IwAR0ONLDTe76gARjq9IUzmWgxBgY_7LOm7ccDpKxC9uDKo2GReB4iS3rTZ3g')
             .then(res => res.json())
             .then(books => {
-                localStorage.setItem("bookStorage", JSON.stringify(books))
-                setBooks(JSON.parse(localStorage.getItem("bookStorage")))
-            })
-    }, [])
+                setBookAPI(() => {
+                    setBooks(books)
+                    return books
+                })
+            }
+            )
+    }, [API])
 
     //Show book info
     function handleClickInfo(ele) {
@@ -74,6 +83,10 @@ export default function HomePage() {
     useEffect(() => {
         books.map((ele, index) => {
             ele.STT = index + 1;
+            if (ele.isAvailable)
+                ele.Status = "Có sẵn"
+            else
+                ele.Status = "Không có sẵn"
             ele.Action = (<div className="action">
                 <span onClick={() => handleClickInfo(ele, index)} style={{ cursor: "pointer" }}>
                     <img className="icon icon-hover" src={require("./img/info.svg").default} alt="" />
@@ -89,15 +102,15 @@ export default function HomePage() {
     useEffect(() => {
         if (keyWord === "" && bookName === "" && author === "" && (nomalize(type) === nomalize("Tất cả") ||
             nomalize(type) === nomalize("Thể loại")))
-            setBooks(JSON.parse(localStorage.getItem("bookStorage")))
-    }, [keyWord, bookName, author, type])
+            setBooks(bookAPI)
+    }, [keyWord, bookName, author, type, bookAPI])
 
     //Handle click
     function handleClick() {
-        const newBooks = JSON.parse(localStorage.getItem("bookStorage")).filter((ele, index) => {
-            return ((keyWord === "" || nomalize(keyWord) === nomalize(ele.ID)) &&
-                (bookName === "" || nomalize(bookName) === nomalize(ele.Name)) &&
-                (author === "" || nomalize(author) === nomalize(ele.Author)) &&
+        const newBooks = bookAPI.filter((ele, index) => {
+            return ((keyWord === "" || nomalize(keyWord) === nomalize(ele.bookId)) &&
+                (bookName === "" || nomalize(bookName) === nomalize(ele.name)) &&
+                (author === "" || nomalize(author) === nomalize(ele.author)) &&
                 (nomalize(type) === nomalize("Tất cả") ||
                     nomalize(type) === nomalize("Thể loại") ||
                     nomalize(type) === nomalize(ele.type)))
@@ -109,11 +122,15 @@ export default function HomePage() {
     // Render UI
     return (
         <div className="home-page">
-            <div className="book-info">{<BookInfo id={bookInfo.ID}
-                name={bookInfo.Name}
-                type={bookInfo.Type}
-                author={bookInfo.Author}
-                status={bookInfo.Status}
+            <div className="book-info">{<BookInfo bookId={bookInfo.bookId}
+                name={bookInfo.name || ""}
+                type={bookInfo.Type || ""}
+                author={bookInfo.author || ""}
+                isAvailable={bookInfo.isAvailable || ""}
+                publisher={bookInfo.publisher || ""}
+                publishYear={bookInfo.publishYear || ""}
+                price={bookInfo.price || ""}
+                createdDate={bookInfo.createdDate || ""}
             />}</div>
             <div className="main-title">
                 <span>TRA CỨU SÁCH</span>

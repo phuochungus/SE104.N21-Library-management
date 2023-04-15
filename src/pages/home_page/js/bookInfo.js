@@ -2,8 +2,29 @@ export function BookInfo(props) {
     function handleClick(e) {
         const infoTable = document.querySelector(".info-table")
         infoTable.style.display = "none"
-
     }
+    const createdDate = new Date(props.createdDate)
+    //Check available
+    var checkAvai = ""
+    if (props.isAvailable) {
+        checkAvai = "Có sẵn"
+        const bookStatus = document.querySelector(".book-status")
+        if (bookStatus) {
+            bookStatus.style.backgroundColor = "#114D0F"
+            bookStatus.style.color = "white"
+            bookStatus.style.border = "none"
+        }
+    }
+    else {
+        checkAvai = "Không có sẵn"
+        const bookStatus = document.querySelector(".book-status")
+        if (bookStatus) {
+            bookStatus.style.backgroundColor = "#B65500"
+            bookStatus.style.color = "white"
+            bookStatus.style.border = "none"
+        }
+    }
+
     return (
         <div className="info-table">
             <div className="table-title">THÔNG TIN SÁCH</div>
@@ -13,6 +34,7 @@ export function BookInfo(props) {
                     className="input"
                     value={props.name}
                     type="text"
+                    onChange={(e) => e.target.value}
                 ></input>
             </div>
             <div className="info-row">
@@ -21,6 +43,7 @@ export function BookInfo(props) {
                     className="input"
                     value={props.author}
                     type="text"
+                    onChange={(e) => e.target.value}
                 ></input>
             </div>
             <div className="info-row">
@@ -29,6 +52,7 @@ export function BookInfo(props) {
                     className="input"
                     value={props.type}
                     type="text"
+                    onChange={(e) => e.target.value}
                 ></input>
             </div>
             <div className="info-row-differ1">
@@ -36,16 +60,18 @@ export function BookInfo(props) {
                     <span>Nhà xuất bản</span>
                     <input
                         className="input publisher"
-                        value={props.type}
+                        value={props.publisher}
                         type="text"
+                        onChange={(e) => e.target.value}
                     ></input>
                 </div>
                 <div className="info-row">
                     <span>Năm xuất bản</span>
                     <input
                         className="input year"
-                        value={props.type}
+                        value={props.publishYear}
                         type="text"
+                        onChange={(e) => e.target.value}
                     ></input>
                 </div>
             </div>
@@ -54,16 +80,18 @@ export function BookInfo(props) {
                     <span>Ngày nhập</span>
                     <input
                         className="input receipt-date"
-                        value={props.type}
+                        value={createdDate.toLocaleDateString('pt-PT')}
                         type="text"
+                        onChange={(e) => e.target.value}
                     ></input>
                 </div>
                 <div className="info-row">
                     <span>Trị giá</span>
                     <input
                         className="input book-cost"
-                        value={props.type}
+                        value={props.price}
                         type="text"
+                        onChange={(e) => e.target.value}
                     ></input>
                 </div>
                 <span className="par-value">đồng</span>
@@ -71,8 +99,9 @@ export function BookInfo(props) {
                     <span>Tình trạng</span>
                     <input
                         className="input book-status"
-                        value={props.type}
+                        value={checkAvai}
                         type="text"
+                        onChange={(e) => e.target.value}
                     ></input>
                 </div>
             </div>
