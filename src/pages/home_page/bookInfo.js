@@ -1,9 +1,13 @@
 export function BookInfo(props) {
-    function handleClick(e) {
+    //Handle clickClose
+    function handleClickClose(e) {
         const infoTable = document.querySelector(".info-table")
         infoTable.style.display = "none"
     }
+
+    //Define a created Date
     const createdDate = new Date(props.createdDate)
+
     //Check available
     var checkAvai = ""
     if (props.isAvailable) {
@@ -25,6 +29,7 @@ export function BookInfo(props) {
         }
     }
 
+    //Render UI
     return (
         <div className="info-table">
             <div className="table-title">THÔNG TIN SÁCH</div>
@@ -106,7 +111,7 @@ export function BookInfo(props) {
                 </div>
             </div>
             <div className="ending-row">
-                <div className="close-btn" onClick={(e) => handleClick(e)}><span>Đóng</span></div>
+                <div className="close-btn" onClick={(e) => handleClickClose(e)}><span>Đóng</span></div>
                 <div className="add-btn"><span>Thêm vào giá sách</span></div>
             </div>
         </div>)

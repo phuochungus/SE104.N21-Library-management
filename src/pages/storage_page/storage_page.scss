@@ -1,4 +1,225 @@
-.storage-page {
-    width: calc(100% - var(--side-bar-width));
-    background: var(--main-font-color);
+// ------------------Handle tools CSS------------
+.handle-tool {
+    display: flex;
+    gap: 40px;
+    justify-content: right;
+    margin-bottom: 12.5px;
+
+    .handle-add {
+        background: #070B72;
+        color: white;
+        border: 1px solid;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 16px;
+        font-family: var(--text-font);
+        padding: 15px 30px 15px;
+
+        &:hover {
+            color: #070B72;
+            background: white;
+            border: 1px solid #070B72;
+        }
+    }
+
+    .handle-dele {
+        background: #114D0F;
+        color: white;
+        border: 1px solid;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 16px;
+        font-family: var(--text-font);
+        padding: 15px 30px 15px;
+        margin-right: 30px;
+
+        &:hover {
+            color: #114D0F;
+            background: white;
+            border: 1px solid #114D0F;
+        }
+    }
+}
+
+// -----------Accept table CSS------------
+.accept-table {
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25vw;
+    height: 15vh;
+    background: var(--body-color);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid var(--text-font-color);
+
+    .accept-title {
+        margin-top: 17px;
+        margin-bottom: 20px;
+    }
+
+    .accept-reject {
+        display: flex;
+        gap: 20px;
+
+        .accept-btn {
+            background: white;
+            color: var(--text-font-color);
+            border: 1px solid;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: var(--text-font);
+            padding: 10px 30px 10px;
+
+            &:hover {
+                background: var(--text-font-color);
+                color: white;
+            }
+        }
+
+        .reject-btn {
+            background: var(--text-font-color);
+            color: white;
+            border: 1px solid;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: var(--text-font);
+            padding: 10px 30px 10px;
+
+            &:hover {
+                background: white;
+                color: var(--text-font-color);
+            }
+        }
+    }
+}
+
+// -------------Add-table CSS-----------------
+.add-table {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42vw;
+    height: 70vh;
+    background: var(--body-color);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    border: solid var(--text-font-color);
+
+    .table-title {
+        font-family: var(--main-font);
+        font-style: bold;
+        font-size: 25px;
+        background: 100px;
+        margin-top: 15px;
+    }
+
+    .info-row {
+        display: flex;
+        flex-direction: column;
+        margin: 5px 0 0;
+
+        span {
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        input {
+            border: 1px solid var(--main-font-color);
+            height: 40px;
+            width: 500px;
+            border-radius: 20px;
+            margin-top: 5px;
+        }
+    }
+
+    .info-row-differ1 {
+        display: flex;
+        gap: 20px;
+
+        .publisher {
+            width: 325px;
+        }
+
+        .year {
+            width: 150px;
+        }
+    }
+
+    .info-row-differ2 {
+        display: flex;
+        align-items: center;
+
+        .receipt-date {
+            width: 155px;
+            margin-right: 20px;
+        }
+
+        .book-cost {
+            width: 100px;
+        }
+
+        .par-value {
+            width: 40px;
+            margin-top: 25px;
+            margin-left: 5px;
+            margin-right: 20px;
+        }
+
+        .book-status-add {
+            width: 150px;
+        }
+    }
+
+    .ending-row {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+
+        .close-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 100px;
+            background: white;
+            border: solid 1px var(--main-font-color);
+            border-radius: 15px;
+
+            &:hover {
+                background: var(--main-font-color);
+                color: white;
+                cursor: pointer;
+
+            }
+        }
+
+        .add-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 200px;
+            color: white;
+            background: var(--main-font-color);
+            border: solid 1px var(--main-font-color);
+            border-radius: 15px;
+
+            &:hover {
+                background: white;
+                color: var(--main-font-color);
+                cursor: pointer;
+            }
+        }
+    }
 }

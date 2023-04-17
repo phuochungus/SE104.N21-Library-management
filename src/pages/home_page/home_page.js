@@ -1,9 +1,9 @@
 import "./home_page.scss"
 import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
-import nomalize from './js/nomalize.js'
-import { BookInfo } from './js/bookInfo'
-import { CustomStyle } from './js/table_props'
+import nomalize from '../js/nomalize'
+import { BookInfo } from './bookInfo'
+import { CustomStyle } from '../js/table_props'
 
 export default function HomePage() {
     //Define seacrh-tool
@@ -19,7 +19,6 @@ export default function HomePage() {
 
     //Define book info
     const [bookInfo, setBookInfo] = useState({})
-
 
     //Define table props 
     const columns = [
@@ -61,32 +60,25 @@ export default function HomePage() {
 
     //Call API
     useEffect(() => {
-        fetch('https://library2.herokuapp.com/books?fbclid=IwAR0ONLDTe76gARjq9IUzmWgxBgY_7LOm7ccDpKxC9uDKo2GReB4iS3rTZ3g')
+        fetch('https://library2.herokuapp.com/books/')
             .then(res => res.json())
             .then(books => {
                 setBookAPI(() => {
                     setBooks(books)
                     return books
                 })
-            }
-            )
+            })
     }, [API])
 
-    //Show book info
-    function handleClickInfo(ele) {
-        const infoTable = document.querySelector(".info-table")
-        infoTable.style.display = "flex"
-        setBookInfo(ele)
-    }
 
     //Display books
     useEffect(() => {
         books.map((ele, index) => {
             ele.STT = index + 1;
             if (ele.isAvailable)
-                ele.Status = "Có sẵn"
+                ele.Status = (<span style={{ color: "#285D24" }}>Có sẵn</span>)
             else
-                ele.Status = "Không có sẵn"
+                ele.Status = (<span style={{ color: "#B65500" }}>Không có sẵn</span>)
             ele.Action = (<div className="action">
                 <span onClick={() => handleClickInfo(ele, index)} style={{ cursor: "pointer" }}>
                     <img className="icon icon-hover" src={require("./img/info.svg").default} alt="" />
@@ -99,15 +91,16 @@ export default function HomePage() {
         })
     }, [books])
 
+    //Dislay default books
     useEffect(() => {
         if (keyWord === "" && bookName === "" && author === "" && (nomalize(type) === nomalize("Tất cả") ||
             nomalize(type) === nomalize("Thể loại")))
             setBooks(bookAPI)
     }, [keyWord, bookName, author, type, bookAPI])
 
-    //Handle click
-    function handleClick() {
-        const newBooks = bookAPI.filter((ele, index) => {
+    //Handle clickSearch
+    function handleClickSearch() {
+        const newBooks = bookAPI.filter((ele) => {
             return ((keyWord === "" || nomalize(keyWord) === nomalize(ele.bookId)) &&
                 (bookName === "" || nomalize(bookName) === nomalize(ele.name)) &&
                 (author === "" || nomalize(author) === nomalize(ele.author)) &&
@@ -119,10 +112,18 @@ export default function HomePage() {
         setBooks(newBooks)
     }
 
+    //Show book info
+    function handleClickInfo(ele) {
+        const infoTable = document.querySelector(".info-table")
+        infoTable.style.display = "flex"
+        setBookInfo(ele)
+    }
+
     // Render UI
     return (
         <div className="home-page">
-            <div className="book-info">{<BookInfo bookId={bookInfo.bookId}
+            <BookInfo
+                bookId={bookInfo.bookId}
                 name={bookInfo.name || ""}
                 type={bookInfo.Type || ""}
                 author={bookInfo.author || ""}
@@ -131,7 +132,7 @@ export default function HomePage() {
                 publishYear={bookInfo.publishYear || ""}
                 price={bookInfo.price || ""}
                 createdDate={bookInfo.createdDate || ""}
-            />}</div>
+            />
             <div className="main-title">
                 <span>TRA CỨU SÁCH</span>
             </div>
@@ -168,14 +169,14 @@ export default function HomePage() {
                         <option >Thể loại</option>
                         <option >Tất cả</option>
                     </select>
-                    <button onClick={handleClick}>Tra cứu</button>
+                    <button onClick={handleClickSearch}>Tra cứu</button>
                 </div>
                 <div className="data-table">
                     <DataTable
                         columns={columns}
                         data={books}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="512px"
+                        fixedHeaderScrollHeight="490px"
                         customStyles={CustomStyle}
                     />
                 </div>

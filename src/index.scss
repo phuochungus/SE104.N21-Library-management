@@ -1,4 +1,4 @@
-/* General CSS-------------------------------- */
+/* ------------------General CSS----------------------- */
 :root {
     /* font-family */
     --main-font: "Anton";
@@ -34,16 +34,7 @@ body {
     height: 25px;
 }
 
-.ad {
-    width: 50vw;
-    height: 50vh;
-    background: red;
-    position: absolute;
-    top: 25%;
-    left: 25%;
-}
-
-/* INPUT OPTIONS---------------------------------- */
+/* -----------------INPUT OPTIONS-------------------- */
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: url(./assets/icons/birth.svg);
     background-repeat: no-repeat;
@@ -51,6 +42,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 20px;
 }
 
+input[type="number"],
 input[type="date"],
 input[type="text"],
 input[type="email"],
@@ -69,4 +61,58 @@ input:focus {
     font-family: var(--text-font);
     color: var(--text-font-color);
     font-size: 16px;
+}
+
+input[type='checkbox'] {
+    appearance: none;
+    background-color: #fff;
+    font: inherit;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid #99413e;
+    border-radius: 0.15em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type='checkbox']::before {
+    content: '';
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+    background: CanvasText;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type='checkbox']:checked {
+    background: #99413e;
+}
+
+input[type='checkbox']:checked::before {
+    transform: scale(1);
+}
+
+input {
+    text-indent: 10px;
+}
+
+// -----------Scroll Bar CSS------------
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ac474c;
+    border-radius: 15px;
 }

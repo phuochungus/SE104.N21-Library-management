@@ -1,3 +1,4 @@
+// ---------------Home-Page CSS----------------
 .home-page {
     display: flex;
     flex-direction: column;
@@ -27,7 +28,7 @@
 
         .search-tool {
             display: flex;
-            margin: 20px auto 50px;
+            margin: 20px auto 72px;
             gap: 40px;
             justify-content: center;
 
@@ -60,7 +61,7 @@
             button {
                 background: var(--main-font-color);
                 color: white;
-                border: 0px;
+                border: 1px solid;
                 border-radius: 15px;
                 padding: 10px 50px;
                 cursor: pointer;
@@ -89,6 +90,7 @@
     }
 }
 
+// -------------------Info table CSS----------------------
 .info-table {
     z-index: 2;
     position: fixed;
@@ -215,21 +217,4 @@
 .icon-hover:hover {
     width: 30px;
     height: 30px;
-}
-
-
-/* width */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #ac474c;
-    border-radius: 15px;
 }
