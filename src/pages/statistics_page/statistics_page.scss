@@ -1,4 +1,22 @@
 .statistics-page {
     width: calc(100% - var(--side-bar-width));
     background: var(--main-font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-2{
+    width: 100%;
+}
+.statistics-page .button-home {
+    background: #F6EBD4;
+    color: #8F3034;
+    padding: 20px 0;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-family: 'Anton', sans-serif;
 }
