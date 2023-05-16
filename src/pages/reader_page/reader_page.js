@@ -1,10 +1,11 @@
 import DataTable from "react-data-table-component";
 import "./reader_page.scss";
 import { CustomStyle } from "../js/table_props";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { getRepairedDataTable } from "../../utils";
 
 export default function ReadesrPage() {
-  const [dataReaders, setDataReaders] = useState([
+  const [dataReaders, setDataReaders] = useState(getRepairedDataTable([
     {
       STT: 1,
       nameID: "NguyenVanA",
@@ -14,7 +15,7 @@ export default function ReadesrPage() {
       email: "sat@sat.com",
       dateCreated: "20/10/2020",
     },
-  ]);
+  ]));
 
   const [readerColumns] = useState([
     {
@@ -57,34 +58,6 @@ export default function ReadesrPage() {
     },
   ]);
 
-  useEffect(() => {
-    dataReaders.map((ele, index) => {
-      ele.STT = index + 1;
-      ele.Action = (
-        <div className="action">
-          <span
-            // onClick={() => handleClickInfo(ele, index)}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              className="icon icon-hover"
-              src={require("./img/info.svg").default}
-              alt="icon-1"
-            />
-          </span>
-          <span style={{ cursor: "pointer" }}>
-            <img
-              className="icon icon-hover"
-              src={require("./img/edit.svg").default}
-              alt="icon-2"
-            />
-          </span>
-        </div>
-      );
-      return ele;
-    });
-    setDataReaders(dataReaders);
-  }, [dataReaders]);
   return (
     <div className="home-page">
       <div className="main-title">
