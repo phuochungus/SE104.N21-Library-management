@@ -1,4 +1,43 @@
 .service-page {
-    width: calc(100% - var(--side-bar-width));
-    background: var(--main-font-color);
+  width: calc(100% - var(--side-bar-width));
+  background: var(--main-font-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    color: #f6ebd4;
+    text-align: center;
+    font-size: 40;
+    font-family: "Anton";
+  }
+
+  button {
+    transition-duration: 0.3s;
+    width: 450px;
+    height: fit-content;
+    align-items: center;
+    background-color: #f6ebd4;
+    border: none;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+
+    &:active {
+      background-color: #e0997e;
+    }
+
+    &:hover {
+      background-color: #e0997e;
+    }
+
+    p {
+      margin: 1rem 2rem 1rem 2rem;
+      font-size: 2rem;
+      font-family: "Anton";
+      color: #8f3034;
+      pointer-events: none;
+    }
+  }
 }

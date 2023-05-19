@@ -1,13 +1,17 @@
-import './App.scss';
-import { Routes, Route, Link } from 'react-router-dom'
-import HomePage from './pages/home_page/home_page'
-import ReaderPage from './pages/reader_page/reader_page'
-import StoragePage from './pages/storage_page/storage_page'
-import ServicePage from './pages/service_page/service_page'
-import StatisticsPage from './pages/statistics_page/statistics_page'
-import SettingPage from './pages/setting_page/setting_page'
-import AccountPage from './pages/account_page/account_page'
-import handleClickPage from "./handleClickPage"
+import "./App.scss";
+import { Routes, Route, Link } from "react-router-dom";
+import HomePage from "./pages/home_page/home_page";
+import ReaderPage from "./pages/reader_page/reader_page";
+import StoragePage from "./pages/storage_page/storage_page";
+import ServicePage from "./pages/service_page/service_page";
+import StatisticsPage from "./pages/statistics_page/statistics_page";
+import SettingPage from "./pages/setting_page/setting_page";
+import AccountPage from "./pages/account_page/account_page";
+import handleClickPage from "./handleClickPage";
+
+import HistoryBRPage from "./pages/service_page/history_borrow_return_page/history_borrow_return_page";
+import ReturnPage from "./pages/service_page/user_returns_page/return_page";
+import BorrowPage from "./pages/service_page/user_borrow_page/borrow_page";
 
 function App() {
   return (
@@ -17,7 +21,11 @@ function App() {
         <div className="side-bar">
           <ul className="nav-bar">
             <li>
-              <Link className="list-item on-display" to="/" onClick={(e) => handleClickPage(e)}>
+              <Link
+                className="list-item on-display"
+                to="/"
+                onClick={(e) => handleClickPage(e)}
+              >
                 <img
                   className="icon"
                   src={require("./assets/nav-bar-icons/home.svg").default}
@@ -27,7 +35,11 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link className="list-item" to="/Reader" onClick={(e) => handleClickPage(e)}>
+              <Link
+                className="list-item"
+                to="/Reader"
+                onClick={(e) => handleClickPage(e)}
+              >
                 <img
                   className="icon"
                   src={require("./assets/nav-bar-icons/author.svg").default}
@@ -37,7 +49,11 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link className="list-item" to="/Storage" onClick={(e) => handleClickPage(e)}>
+              <Link
+                className="list-item"
+                to="/Storage"
+                onClick={(e) => handleClickPage(e)}
+              >
                 <img
                   className="icon"
                   src={require("./assets/nav-bar-icons/store.svg").default}
@@ -47,7 +63,11 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link className="list-item" to="/Service" onClick={(e) => handleClickPage(e)}>
+              <Link
+                className="list-item"
+                to="/Service"
+                onClick={(e) => handleClickPage(e)}
+              >
                 <img
                   className="icon"
                   src={require("./assets/nav-bar-icons/service.svg").default}
@@ -57,7 +77,11 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link className="list-item" to="/Statistics" onClick={(e) => handleClickPage(e)}>
+              <Link
+                className="list-item"
+                to="/Statistics"
+                onClick={(e) => handleClickPage(e)}
+              >
                 <img
                   className="icon"
                   src={require("./assets/nav-bar-icons/statistic.svg").default}
@@ -67,18 +91,26 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link className="list-item" to="/Setting" onClick={(e) => handleClickPage(e)}>
+              <Link
+                className="list-item"
+                to="/Setting"
+                onClick={(e) => handleClickPage(e)}
+              >
                 <img
                   className="icon"
                   src={require("./assets/nav-bar-icons/setting.svg").default}
                   alt=""
                 />
-                <span>Tùy chỉnh</span >
+                <span>Tùy chỉnh</span>
               </Link>
             </li>
           </ul>
           <div className="account">
-            <Link className="list-item" to="/Account" onClick={(e) => handleClickPage(e)}>
+            <Link
+              className="list-item"
+              to="/Account"
+              onClick={(e) => handleClickPage(e)}
+            >
               <span>Tài khoản</span>
               <img
                 className="icon"
@@ -88,7 +120,9 @@ function App() {
             </Link>
           </div>
           <div className="sign-out-tab">
-            <Link className="sign-out" to="/">Đăng xuất</Link>
+            <Link className="sign-out" to="/">
+              Đăng xuất
+            </Link>
           </div>
         </div>
         <Routes>
@@ -96,6 +130,9 @@ function App() {
           <Route path="/Reader" element={<ReaderPage />}></Route>
           <Route path="/Storage" element={<StoragePage />}></Route>
           <Route path="/Service" element={<ServicePage />}></Route>
+          <Route path="/Service/HistoryBRPage" element={<HistoryBRPage />}></Route>
+          <Route path="/Service/ReturnPage" element={<ReturnPage />}></Route>
+          <Route path="/Service/BorrowPage" element={<BorrowPage />}></Route>
           <Route path="/Statistics" element={<StatisticsPage />}></Route>
           <Route path="/Setting" element={<SettingPage />}></Route>
           <Route path="/Account" element={<AccountPage />}></Route>

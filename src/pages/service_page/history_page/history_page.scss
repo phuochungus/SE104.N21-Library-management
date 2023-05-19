@@ -1,0 +1,60 @@
+
+ 
+.view {
+  display: flex;
+  flex-direction: row;
+  height: var(--service-sub-height);
+  width: var(--service-sub-width);
+}
+
+.infor-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f4db;
+  padding: 0rem 2rem 2rem 2rem;
+  pointer-events: none;
+
+  h1 {
+    text-align: center;  
+    font-family: "Anton";
+    font-weight: 100;
+    color: #99413E;
+  }
+
+  label {
+    margin-left: 1rem;
+    margin-bottom: 0.35rem;
+    font-family: "Questrial";
+    color: #8F3034;
+}
+
+  input {
+    margin-bottom: 1rem;
+    width: 300px;
+    height: 35px;
+    border-radius: 1rem;
+  }
+}
+
+.history-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #99413e;
+  width: 100%;
+
+  h1 {
+    text-align: center;
+    font-family: "Anton";
+    font-weight: 100;
+    color: #FFFFFF;
+  }
+
+  .list-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+}
