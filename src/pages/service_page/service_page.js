@@ -5,9 +5,11 @@ export default function ServicePage() {
   return (
     <div className="service-page">
       <h1>VUI LÒNG CHỌN LOẠI DỊCH VỤ</h1>
+      <Link to="/Service/BRSlipPage">{/*testing borrow return slip screen */}
       <button>
         <p>LẬP PHIẾU MƯỢN/TRẢ SÁCH</p>
       </button>
+      </Link>
       <Link to="/Service/BorrowPage">
         <button>
           <p>DỊCH VỤ MƯỢN SÁCH</p>

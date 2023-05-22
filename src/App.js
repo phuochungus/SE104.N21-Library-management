@@ -12,6 +12,7 @@ import handleClickPage from "./handleClickPage";
 import HistoryBRPage from "./pages/service_page/history_borrow_return_page/history_borrow_return_page";
 import ReturnPage from "./pages/service_page/user_returns_page/return_page";
 import BorrowPage from "./pages/service_page/user_borrow_page/borrow_page";
+import BRSlipPage from "./pages/service_page/create_borrow_return_slip_page/borrow_return_slip_page";
 
 function App() {
   return (
@@ -133,6 +134,7 @@ function App() {
           <Route path="/Service/HistoryBRPage" element={<HistoryBRPage />}></Route>
           <Route path="/Service/ReturnPage" element={<ReturnPage />}></Route>
           <Route path="/Service/BorrowPage" element={<BorrowPage />}></Route>
+          <Route path="/Service/BRSlipPage" element={<BRSlipPage />}></Route>
           <Route path="/Statistics" element={<StatisticsPage />}></Route>
           <Route path="/Setting" element={<SettingPage />}></Route>
           <Route path="/Account" element={<AccountPage />}></Route>

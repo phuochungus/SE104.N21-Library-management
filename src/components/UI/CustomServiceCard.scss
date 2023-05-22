@@ -1,0 +1,13 @@
+:root {
+    --BGColor: #F5D1BB;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--BGColor);
+    overflow: hidden;
+}
