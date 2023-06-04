@@ -7,9 +7,10 @@ import alert from '../components/alert'
 export default function ResetPassPage() {
     const [user, setUser] = useState("")
     const [mail, setMail] = useState("")
-    const reset = document.querySelector(".reset-option")
 
     async function handleClick() {
+        const reset = document.querySelector(".reset-option")
+
         reset.style.cursor = "wait"
 
         if (user === "" || mail === "") {
