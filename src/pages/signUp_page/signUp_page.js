@@ -5,9 +5,10 @@ import alert from '../components/alert'
 
 export default function SignUpPage() {
     const navigate = useNavigate();
-    const signUp = document.querySelector(".sign-up")
 
     async function HandleClick() {
+        const signUp = document.querySelector(".sign-up")
+
         signUp.style.cursor = "wait"
         if (name === "" || email === "" || address === "" || user === "" || pass === "" || birth === "") {
             alert("Thông tin không được để trống")
