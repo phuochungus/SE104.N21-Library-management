@@ -126,12 +126,12 @@ export default function BorrowByGenres() {
                     <button className="statics" onClick={handleClickStat}>Thống kê</button>
                     <button className="export" onClick={handleClickExport}>Xuất báo cáo</button>
                 </div>
-                <div className="data-table">
+                <div className="data-table" style={{ "height": "calc(90% - 137px)" }}>
                     <DataTable
                         data={stats}
                         columns={columns}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="300px"
+                        fixedHeaderScrollHeight="100%"
                         customStyles={CustomStyle}
                         selectableRows
                         onSelectedRowsChange={(selected) => setSelectedStats(selected.selectedRows)}

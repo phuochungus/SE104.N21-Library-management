@@ -8,13 +8,13 @@ export default function SignInPage() {
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
     const [show, setShow] = useState(false)
-    const enter = document.querySelector(".enter button")
 
     const { setIsLoggedIn, setAdmin, setToken, setUserInfo, setAdminInfo } = useContext(AppContext);
 
     const navigate = useNavigate();
 
     async function HandleSignIn() {
+        const enter = document.querySelector(".enter button")
         enter.style.cursor = "wait"
 
         if (user === "" || pass === "") {

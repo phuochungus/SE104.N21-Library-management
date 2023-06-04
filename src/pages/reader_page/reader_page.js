@@ -252,7 +252,7 @@ export default function ReaderPage() {
                     columns={columns}
                     data={users}
                     fixedHeader={"true"}
-                    fixedHeaderScrollHeight="520px"
+                    fixedHeaderScrollHeight="100%"
                     customStyles={CustomStyle}
                     selectableRows
                     onSelectedRowsChange={(selected) => setSelectedUsers(selected.selectedRows)}

@@ -244,7 +244,7 @@ export default function HomePage() {
                         columns={columns}
                         data={books}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="520px"
+                        fixedHeaderScrollHeight="100%"
                         customStyles={CustomStyle}
                     />
                 </div>

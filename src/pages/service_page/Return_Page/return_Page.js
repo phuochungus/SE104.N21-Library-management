@@ -169,7 +169,7 @@ export default function ReturnPage() {
                         data={reSession}
                         columns={columns}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="520px"
+                        fixedHeaderScrollHeight="100%"
                         customStyles={CustomStyle}
                     />
                 </div>

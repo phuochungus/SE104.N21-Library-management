@@ -117,7 +117,7 @@ export default function MyHistoryPage() {
                     data={history}
                     columns={columns}
                     fixedHeader={"true"}
-                    fixedHeaderScrollHeight="648px"
+                    fixedHeaderScrollHeight="100%"
                     customStyles={CustomStyle}
                 />
             </div>

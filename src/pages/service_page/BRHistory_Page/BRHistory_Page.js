@@ -126,7 +126,7 @@ export default function BRHistoryPage() {
                         data={users}
                         columns={columns}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="520px"
+                        fixedHeaderScrollHeight="100%"
                         customStyles={CustomStyle}
                     />
                 </div>

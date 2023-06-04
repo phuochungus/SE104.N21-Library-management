@@ -123,7 +123,7 @@
             .ending-row {
                 display: flex;
                 gap: 15px;
-                margin: 120px;
+                margin: 100px auto 0px;
 
                 .make-card {
                     text-align: center;
@@ -190,7 +190,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 82.6px);
             margin-top: 30px;
             overflow: auto;
         }

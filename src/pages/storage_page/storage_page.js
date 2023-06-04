@@ -265,7 +265,7 @@ export default function StoragePage() {
                         columns={columns}
                         data={books}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="520px"
+                        fixedHeaderScrollHeight="100%"
                         customStyles={CustomStyle}
                         selectableRows
                         onSelectedRowsChange={(selected) => setSelectedBooks(selected.selectedRows)}
