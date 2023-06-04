@@ -1,0 +1,116 @@
+//---------------Sign IN PAGE CSS--------------
+.body-app {
+    .sign-in-container {
+        width: 30vw;
+        height: 45vh;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 32px;
+        border-radius: 10px;
+        background: var(--body-color);
+        opacity: 95%;
+
+        .form-name {
+            font-family: var(--main-font);
+            color: var(--main-font-color);
+            font-size: 25px;
+            font-style: bold;
+            margin: 10px auto 25px;
+        }
+
+        .form-1 {
+            display: flex;
+            flex-direction: column;
+
+            .row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                padding: 5px;
+
+                .input {
+                    width: 350px;
+                    height: 40px;
+                    border: 1px solid var(--main-font-color);
+                    border-radius: 12px;
+                }
+
+                .pass_option {
+                    position: absolute;
+                    z-index: 1;
+                    left: 60.2vw;
+                    cursor: pointer;
+
+                    &:hover {
+                        left: 60vw;
+                    }
+
+                    img {
+                        &:hover {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .password {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+
+
+            .forget {
+                color: var(--text-font-color);
+                text-decoration: none;
+                margin-left: 320px;
+            }
+        }
+
+        .enter {
+            margin: 20px auto 0px;
+
+            button {
+                color: var(--text-font-color);
+                padding: 10px 50px;
+                border-radius: 999px;
+                border: 2px solid var(--main-font-color);
+                background: var(--main-font-color);
+                text-decoration: none;
+                color: white;
+                font-size: 18px;
+
+                &:hover {
+                    background: white;
+                    color: var(--main-font-color);
+                }
+            }
+        }
+
+        .sign-up {
+            font-size: 14px;
+            margin: 0px auto;
+            display: flex;
+            align-items: center;
+
+            a {
+                color: var(--text-font-color);
+                text-decoration: none;
+                padding: 5px 15px;
+                background: var(--body-color);
+                margin: 15px auto;
+                border: 1px solid var(--main-font-color);
+                border-radius: 999px;
+                margin-left: 10px;
+
+                &:hover {
+                    background: white;
+                }
+            }
+        }
+    }
+}

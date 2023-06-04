@@ -1,11 +1,13 @@
 import './storage_page.scss'
 import { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
-import nomalize from '../js/nomalize'
-import { CustomStyle } from '../js/table_props'
-import { BookInfo } from './bookInfo'
-import { AcceptRemove } from './acceptRemove'
+import nomalize from '..//components/nomalize'
+import { CustomStyle } from '../components/table_props'
+import { BookInfoAdmin } from '../components/bookInfo-Admin'
+import { AcceptRemove } from '../components/acceptRemove'
 import { AddBook } from './addBook'
+import { Selection } from '../components/select'
+import alert from '../components/alert'
 
 export default function StoragePage() {
     //Define seacrh-tool
@@ -18,9 +20,11 @@ export default function StoragePage() {
     const [API, setAPI] = useState(true)
     const [bookAPI, setBookAPI] = useState([]) //original-books
     const [books, setBooks] = useState([]) //handle-books
+    const [genres, setGenres] = useState([]) //handle-genres
 
     //Define book info
     const [bookInfo, setBookInfo] = useState({})
+    const [typeArray, setTypeArray] = useState([])
 
     //Define selected book
     const [selectedBooks, setSelectedBooks] = useState([])
@@ -29,36 +33,43 @@ export default function StoragePage() {
     //Define table props 
     const columns = [
         {
+            width: "85px",
             name: "STT",
             selector: row => row.STT,
             sortable: true,
         },
         {
+            width: "190px",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
+            width: "200px",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
         },
         {
+            width: "200px",
             name: "Thể loại",
             selector: row => row.Type,
             sortable: true,
         },
         {
+            width: "200px",
             name: "Tác giả",
             selector: row => row.author,
             sortable: true,
         },
         {
+            width: "154.3px",
             name: "Tình trạng",
             selector: row => row.Status,
             sortable: true,
         },
         {
+            width: "115px",
             name: "Hành động",
             selector: row => row.Action,
         },
@@ -76,25 +87,47 @@ export default function StoragePage() {
             })
     }, [API])
 
+    //Call API Genres
+    useEffect(() => {
+        fetch('https://library2.herokuapp.com/genres/')
+            .then(res => res.json())
+            .then(genres => setGenres(genres))
+    }, [])
+
     //Display books
     useEffect(() => {
+        function handleClickInfo(ele) {
+            setBookInfo(ele)
+            setTypeArray(() => ele.genres.map((ele1) => ele1.name))
+
+            const overLay = document.querySelector("#overlay")
+            overLay.style.display = "flex"
+            const infoTable = document.querySelector(".info-table-Edit")
+            infoTable.style.display = "flex"
+        }
         books.map((ele, index) => {
+            //Book index
             ele.STT = index + 1;
+
+            //Book types
+            ele.Type = (ele.genres.map(e => e.name)).join(", ")
+
+            //Book availability
             if (ele.isAvailable)
                 ele.Status = (<span style={{ color: "#285D24" }}>Có sẵn</span>)
             else
                 ele.Status = (<span style={{ color: "#B65500" }}>Không có sẵn</span>)
+
+            //Book actions
             ele.Action = (<div className="action">
                 <span onClick={() => handleClickInfo(ele, index)} style={{ cursor: "pointer" }}>
-                    <img className="icon icon-hover" src={require("./img/info.svg").default} alt="" />
-                </span>
-                <span style={{ cursor: "pointer" }}>
                     <img className="icon icon-hover" src={require("./img/edit.svg").default} alt="" />
                 </span>
             </div>)
             return ele
         })
-    }, [books])
+
+    }, [books, typeArray])
 
     //Display default books
     useEffect(() => {
@@ -112,7 +145,7 @@ export default function StoragePage() {
                 (author === "" || nomalize(author) === nomalize(ele.author)) &&
                 (nomalize(type) === nomalize("Tất cả") ||
                     nomalize(type) === nomalize("Thể loại") ||
-                    nomalize(type) === nomalize(ele.type)) &&
+                    ele.genres.some((elex) => nomalize(elex.name) === nomalize(type))) &&
                 (nomalize(status) === nomalize("Tất cả") ||
                     nomalize(status) === nomalize("Tình trạng") ||
                     (nomalize(status) === nomalize("Có sẵn") ? true : false) === ele.isAvailable))
@@ -124,25 +157,24 @@ export default function StoragePage() {
     //Hanlde click Remove books
     function handleClickRemove() {
         if (selectedBooks.length === 0)
-            alert("Không có mục nào cần xóa !")
+            alert("Không có mục nào cần xóa")
         else {
+            const overLay = document.querySelector("#overlay")
+            overLay.style.display = "flex"
             const acceptTable = document.querySelector(".accept-table")
             acceptTable.style.display = "flex"
+            window.onload = function () {
+                acceptTable.focus();
+            }
         }
     }
 
     //Handle click add books
     function handleClickAdd() {
+        const overLay = document.querySelector("#overlay")
+        overLay.style.display = "flex"
         const addTable = document.querySelector(".add-table")
         addTable.style.display = "flex"
-
-    }
-
-    //Handle click show books info
-    function handleClickInfo(ele) {
-        const infoTable = document.querySelector(".info-table")
-        infoTable.style.display = "flex"
-        setBookInfo(ele)
     }
 
     //Handle clear Rows
@@ -155,30 +187,37 @@ export default function StoragePage() {
         setSelectedBooks([])
     }
 
-    //Hanlde set API
-    const handleAPI = () => {
-        setAPI(API => !API)
-    }
-
     // Render UI
     return (
         <div className="home-page">
-            <AddBook handleAPI={handleAPI}></AddBook>
+            <AddBook
+                setAPI={setAPI}
+                genres={genres}>
+            </AddBook>
             <AcceptRemove
-                selectedBooks={selectedBooks || []}
-                handleAPI={handleAPI}
+                selected={selectedBooks || []}
+                setAPI={setAPI}
                 handleClearRows={handleClearRows}
-                handleSelectedBooks={handleSelectedBooks}></AcceptRemove>
-            <BookInfo
+                handleSelected={handleSelectedBooks}
+                fetchLink={"https://library2.herokuapp.com/books/book/"}
+                ele={"bookId"}
+            >
+            </AcceptRemove>
+            <BookInfoAdmin
+                bookInfo={bookInfo}
                 bookId={bookInfo.bookId}
                 name={bookInfo.name || ""}
-                type={bookInfo.Type || ""}
                 author={bookInfo.author || ""}
                 isAvailable={bookInfo.isAvailable || ""}
                 publisher={bookInfo.publisher || ""}
                 publishYear={bookInfo.publishYear || ""}
                 price={bookInfo.price || ""}
                 createdDate={bookInfo.createdDate || ""}
+                setBookInfo={setBookInfo}
+                genres={genres || []}
+                typeArray={typeArray || []}
+                setTypeArray={setTypeArray || []}
+                setAPI={setAPI}
             />
             <div className="main-title">
                 <span>KHO SÁCH</span>
@@ -201,22 +240,20 @@ export default function StoragePage() {
                         value={author}
                         onChange={(e) => setAuthor(e.target.value)}
                     />
-                    <select name="type"
+                    <Selection
+                        genres={genres.map(ele => ele.name)}
+                        title="Thể loại"
                         value={type}
-                        onChange={(e) => setType(e.target.value)}
-                    >
-                        <option >Thể loại</option>
-                        <option >Tất cả</option>
-                    </select>
-                    <select name="status"
+                        SET={setType}
+                        ID="type-select"
+                    ></Selection>
+                    <Selection
+                        genres={["Tất cả", "Có sẵn", "Không có sẵn"]}
+                        title="Tình trạng"
                         value={status}
-                        onChange={(e) => setStatus(e.target.value)}
-                    >
-                        <option >Tình trạng</option>
-                        <option >Tất cả</option>
-                        <option >Có sẵn</option>
-                        <option >Không có sẵn</option>
-                    </select>
+                        SET={setStatus}
+                        ID="status-select"
+                    ></Selection>
                     <button onClick={handleClickSearch}>Tra cứu</button>
                 </div>
                 <div className="handle-tool">
@@ -228,7 +265,7 @@ export default function StoragePage() {
                         columns={columns}
                         data={books}
                         fixedHeader={"true"}
-                        fixedHeaderScrollHeight="490px"
+                        fixedHeaderScrollHeight="520px"
                         customStyles={CustomStyle}
                         selectableRows
                         onSelectedRowsChange={(selected) => setSelectedBooks(selected.selectedRows)}

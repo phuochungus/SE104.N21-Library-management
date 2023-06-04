@@ -1,0 +1,76 @@
+.user-history-page {
+    display: flex;
+    width: calc(100% - var(--side-bar-width));
+    height: 100%;
+
+    .user-info {
+        pointer-events: none;
+        margin-top: 10px;
+        width: 30%;
+        background: var(--body-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .tittle {
+            font-family: var(--main-font);
+            font-style: bold;
+            font-size: 20px;
+            margin-top: 15px;
+
+        }
+
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            margin: 5px 0 0;
+
+            span {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            input {
+                border: 1px solid var(--main-font-color);
+                height: 40px;
+                width: 325px;
+                border-radius: 20px;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .borrow-card {
+        display: flex;
+        flex-direction: column;
+        background: var(--main-font-color);
+        width: 70%;
+        align-items: center;
+
+        .tittle {
+            color: white;
+            font-family: var(--main-font);
+            font-style: bold;
+            font-size: 25px;
+            background: 100px;
+            margin-top: 15px;
+
+        }
+
+        .return {
+            position: absolute;
+            right: 45px;
+            top: 30px;
+            cursor: pointer;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            margin-top: 30px;
+            background: #8F3034;
+        }
+    }
+}
