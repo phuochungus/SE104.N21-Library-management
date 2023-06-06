@@ -24,53 +24,53 @@ export default function ReturnCard(props) {
                 ></input>
             </div>
             <div className="differ-1">
-                <div className="info-row">
+                <div className="info-row" style={{ "width": "42.85%", "minWidth": "none" }}>
                     <span>Mã sách</span>
                     <input
-                        style={{ "width": "300px" }}
-                        className="input"
+                        style={{ "width": "100%" }}
+                        className="input1"
                         type="text"
                         defaultValue={props.ele.bookId}
                     ></input>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ "width": "20.71%", "minWidth": "none" }}>
                     <span>Ngày mượn</span>
                     <input
-                        style={{ "width": "145px" }}
-                        className="input "
+                        style={{ "width": "100%" }}
+                        className="input2"
                         type="text"
                         defaultValue={borrowedDate.toLocaleDateString('pt-PT')}
                     ></input>
                 </div>
-                <div className="info-row">
+                <div className="info-row" style={{ "width": "20.71%", "minWidth": "none" }}>
                     <span>Ngày trả</span>
                     <input
-                        style={{ "width": "145px" }}
-                        className="input "
+                        style={{ "width": "100%" }}
+                        className="input3"
                         type="text"
                         defaultValue={returnedDate.toLocaleDateString('pt-PT')}
                     ></input>
                 </div>
             </div>
             <div className="differ-2">
-                <div className="fer-1">
-                    <div className="info-row">
+                <div className="fer-1" style={{ "width": "40.3%", "minWidth": "none" }}>
+                    <div className="info-row" style={{ "width": "100%" }}>
                         <span>Số ngày mượn</span>
                         <input
-                            style={{ "width": "230px" }}
-                            className="input "
+                            style={{ "width": "100%" }}
+                            className="input1"
                             type="text"
                             defaultValue={borrowDateNum}
                         ></input>
                     </div>
                     <span className="row-value">ngày</span>
                 </div>
-                <div className="fer-2">
-                    <div className="info-row">
+                <div className="fer-2" style={{ "width": "20%", "minWidth": "none" }}>
+                    <div className="info-row" style={{ "width": "100%" }}>
                         <span>Tiền phạt</span>
                         <input
-                            style={{ "width": "140px" }}
-                            className="input "
+                            style={{ "width": "100%" }}
+                            className="input2"
                             type="text"
                             defaultValue={props.ele.fine}
                         ></input>

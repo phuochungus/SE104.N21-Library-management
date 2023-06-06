@@ -1,8 +1,10 @@
 // -------------------Info table CSS----------------------
 .info-table {
+    min-width: 614px;
+    min-height: 500px;
     z-index: 10;
     position: fixed;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -12,7 +14,8 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border: solid var(--text-font-color);
+    border: 1px solid var(--text-font-color);
+
 
     .table-title {
         font-family: var(--main-font);
@@ -141,9 +144,11 @@
 
 // -------------------Info table Edit CSS----------------------
 .info-table-Edit {
+    min-width: 614px;
+    min-height: 500px;
     z-index: 10;
     position: fixed;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -153,7 +158,8 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border: solid var(--text-font-color);
+    border: 1px solid var(--text-font-color);
+
 
     .table-title {
         font-family: var(--main-font);
@@ -843,23 +849,58 @@
             font-size: 14px;
         }
 
-        input {
+        .input {
+            min-width: 570px;
             border: 1px solid white;
             height: 40px;
-            width: 700px;
+            width: 47vw;
             border-radius: 20px;
             margin-top: 5px;
         }
     }
 
     .differ-1 {
+        min-width: 570px;
+        width: 47vw;
         display: flex;
-        gap: 50px;
+        gap: clamp(43.5px, 3.6vw, 50px);
+
+        .input1 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+        }
+
+        .input2 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+
+        }
     }
 
     .differ-2 {
+        min-width: 570px;
+        width: 47vw;
         display: flex;
-        gap: 50px;
+        gap: clamp(43.5px, 3.6vw, 50px);
+
+        .input1 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+        }
+
+        .input2 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+
+        }
     }
 }
 
@@ -907,30 +948,66 @@
             font-size: 14px;
         }
 
-        input {
+        .input {
+            width: 47vw;
+            min-width: 570px;
             border: 1px solid white;
             height: 40px;
-            width: 700px;
             border-radius: 20px;
             margin-top: 5px;
         }
     }
 
     .differ-1 {
+        min-width: 570px;
+        width: 47vw;
         display: flex;
-        gap: 50px;
+        gap: clamp(43.5px, 3.6vw, 50px);
+
+        .input1 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+        }
+
+        .input2 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+
+        }
+
+        .input3 {
+            border: 1px solid white;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 5px;
+
+        }
     }
 
     .differ-2 {
+        min-width: 570px;
+        width: 47vw;
         display: flex;
-        gap: 68px;
+        gap: clamp(60px, 4.6vw, 68px);
         align-self: flex-start;
 
         .fer-1 {
             display: flex;
             gap: 15px;
             align-items: center;
-            margin-left: 25px;
+            margin-left: clamp(15px, 0.9vw, 25px);
+
+            .input1 {
+                border: 1px solid white;
+                height: 40px;
+                border-radius: 20px;
+                margin-top: 5px;
+                min-width: 185px;
+            }
 
             .row-value {
                 margin-top: 25px;
@@ -942,6 +1019,15 @@
             display: flex;
             gap: 15px;
             align-items: center;
+
+            .input2 {
+                border: 1px solid white;
+                height: 40px;
+                border-radius: 20px;
+                margin-top: 5px;
+                min-width: 79.5px;
+
+            }
 
             .row-value {
                 margin-top: 25px;

@@ -1,9 +1,11 @@
 //add-table-user
 .add-table-user {
+    min-width: 614px;
+    min-height: 500px;
     z-index: 10;
     display: none;
     position: fixed;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -12,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border: solid var(--text-font-color);
+    border: 1px solid var(--text-font-color);
 
     .table-title {
         font-family: var(--main-font);
@@ -113,10 +115,12 @@
 
 //info-table-edit
 .info-table-user {
+    min-width: 614px;
+    min-height: 500px;
     z-index: 10;
     display: none;
     position: fixed;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -125,7 +129,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border: solid var(--text-font-color);
+    border: 1px solid var(--text-font-color);
 
     .table-title {
         font-family: var(--main-font);

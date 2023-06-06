@@ -37,7 +37,7 @@
             align-items: center;
 
             .books-id {
-                margin: 20px auto 70px;
+                margin: 2.8vh auto 7vh;
                 display: flex;
                 gap: 30px;
 
@@ -72,6 +72,8 @@
                 height: 460px;
                 background: #F5D1BB;
                 border-radius: 30px;
+                margin-bottom: 10px;
+
 
                 .table-name {
                     border-radius: 30px 30px 0 0;
@@ -158,7 +160,7 @@
 
             .input {
                 border-radius: 10px;
-                margin: 20px auto 80px;
+                margin: 2.8vh auto 8.4vh;
                 display: flex;
                 gap: 30px;
                 width: 150px;
@@ -175,6 +177,7 @@
                 height: 460px;
                 background: #E9C7CA;
                 border-radius: 30px;
+                margin-bottom: 10px;
 
                 .table-name {
                     border-radius: 30px 30px 0 0;

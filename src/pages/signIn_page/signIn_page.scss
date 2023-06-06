@@ -1,12 +1,14 @@
 //---------------Sign IN PAGE CSS--------------
 .body-app {
     .sign-in-container {
+        min-width: 460px;
+        min-height: 320px;
         width: 30vw;
         height: 45vh;
         display: flex;
         flex-direction: column;
         margin: auto;
-        padding: 32px;
+        padding: 30px;
         border-radius: 10px;
         background: var(--body-color);
         opacity: 95%;
@@ -29,6 +31,7 @@
                 justify-content: center;
                 gap: 15px;
                 padding: 5px;
+                position: relative;
 
                 .input {
                     width: 350px;
@@ -40,11 +43,11 @@
                 .pass_option {
                     position: absolute;
                     z-index: 1;
-                    left: 60.2vw;
                     cursor: pointer;
+                    left: 85%;
 
                     &:hover {
-                        left: 60vw;
+                        left: 85.1%;
                     }
 
                     img {
@@ -60,14 +63,14 @@
 
         .password {
             font-size: 14px;
-            display: flex;
-            align-items: center;
-
+            width: 91%;
 
             .forget {
+                display: flex;
+                justify-content: flex-end;
                 color: var(--text-font-color);
                 text-decoration: none;
-                margin-left: 320px;
+
             }
         }
 

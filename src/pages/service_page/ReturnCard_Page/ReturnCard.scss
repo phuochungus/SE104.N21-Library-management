@@ -37,9 +37,10 @@
                 }
 
                 input {
+                    min-width: 250px;
                     border: 1px solid var(--main-font-color);
                     height: 40px;
-                    width: 325px;
+                    width: 21vw;
                     border-radius: 20px;
                     margin-top: 5px;
                 }
@@ -63,15 +64,18 @@
             }
 
             .row-info {
+                min-width: 254.5px;
                 pointer-events: none;
                 gap: 15px;
                 display: flex;
                 align-items: center;
+                width: 21.3vw;
 
                 .info-row {
                     display: flex;
                     flex-direction: column;
                     margin: 5px 0 0;
+                    width: 100%;
 
                     span {
                         margin-left: 15px;
@@ -79,9 +83,10 @@
                     }
 
                     input {
+
                         border: 1px solid var(--main-font-color);
                         height: 40px;
-                        width: 275px;
+                        width: 97%;
                         border-radius: 20px;
                         margin-top: 5px;
                     }
@@ -107,8 +112,9 @@
                 }
 
                 .fine-value {
+                    min-width: 117px;
                     border: none;
-                    width: 195px;
+                    width: 12vw;
                     background: var(--main-font-color);
                     color: white;
                     height: 40px;
@@ -123,12 +129,15 @@
             .ending-row {
                 display: flex;
                 gap: 15px;
-                margin: 100px auto 0px;
+                margin: 14vh auto 20px;
 
                 .make-card {
+                    font-size: max(1vw, 12px);
                     text-align: center;
-                    width: 100px;
+                    width: 6.2vw;
                     color: white;
+                    min-width: 74px;
+
                     background: #070B72;
                     border-radius: 999px;
                     padding: 15px 30px 15px;
@@ -142,8 +151,10 @@
                 }
 
                 .print {
+                    font-size: max(1vw, 12px);
                     text-align: center;
-                    width: 100px;
+                    width: 6.2vw;
+                    min-width: 74px;
                     color: white;
                     background: #114D0F;
                     border-radius: 999px;

@@ -31,9 +31,10 @@
             }
 
             input {
+                min-width: 250px;
                 border: 1px solid var(--main-font-color);
                 height: 40px;
-                width: 325px;
+                width: 21vw;
                 border-radius: 20px;
                 margin-top: 5px;
             }

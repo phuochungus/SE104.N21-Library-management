@@ -43,6 +43,8 @@
 
 // -----------Accept table CSS------------
 .accept-table {
+    min-width: 384px;
+    min-height: 112px;
     z-index: 10;
     position: fixed;
     top: 50%;
@@ -55,7 +57,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border: 2px solid var(--text-font-color);
+    border: 1px solid var(--text-font-color);
 
     .accept-title {
         margin-top: 17px;
@@ -92,9 +94,11 @@
 
 // -------------Add-table CSS-----------------
 .add-table {
+    min-width: 614px;
+    min-height: 500px;
     z-index: 10;
     position: fixed;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -104,7 +108,7 @@
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    border: solid var(--text-font-color);
+    border: 1px solid var(--text-font-color);
 
     .table-title {
         font-family: var(--main-font);

@@ -29,12 +29,13 @@
         .search-tool {
             display: flex;
             margin: 20px auto 70px;
-            gap: 40px;
+            gap: clamp(24px, 2vw, 30px);
             justify-content: center;
 
             .input {
+                min-width: 120px;
                 border: 0px;
-                width: 150px;
+                width: 10vw;
                 padding: 10px 20px;
                 text-align: center;
                 background: var(--body-color);
