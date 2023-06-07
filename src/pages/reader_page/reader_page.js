@@ -16,7 +16,7 @@ export default function ReaderPage() {
     const navigate = useNavigate();
 
     //Define data users
-    const [API, setAPI] = useState(true)
+
     const [userAPI, setUserAPI] = useState([]) //original-user
     const [users, setUsers] = useState([]) //handle-user
     const [userInfo, setUserInfos] = useState({ name: "", username: "", birth: "", email: "", address: "", type: "", createdDate: "" })
@@ -96,7 +96,7 @@ export default function ReaderPage() {
                     return users
                 })
             })
-    }, [API, token])
+    }, [token])
 
     //Display users
     useEffect(() => {
@@ -185,8 +185,9 @@ export default function ReaderPage() {
     }
     return (<div className="home-page">
         <AcceptRemove
+            listAPI={userAPI}
+            setListAPI={setUserAPI}
             selected={selectedUsers || []}
-            setAPI={setAPI}
             handleClearRows={handleClearRows}
             handleSelected={handleSelectedUsers}
             fetchLink={"https://library2.herokuapp.com/users/user/"}
@@ -194,14 +195,16 @@ export default function ReaderPage() {
             access_token={token}
         />
         <AddUser
-            setAPI={setAPI}
+            userAPI={userAPI}
+            setUserAPI={setUserAPI}
             token={token}
         >
         </AddUser>
         <UserInfo
+            userAPI={userAPI}
+            setUserAPI={setUserAPI}
             ele={userInfo}
             setUserInfo={setUserInfos}
-            setAPI={setAPI}
         ></UserInfo>
         <div className="main-title">
             <span>ĐỘC GIẢ</span>

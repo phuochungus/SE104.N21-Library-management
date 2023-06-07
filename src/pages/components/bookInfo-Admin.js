@@ -42,7 +42,7 @@ export function BookInfoAdmin(props) {
         setPublishYear(props.publishYear)
         setCost(props.price)
         setType(props.typeArray)
-    }, [props])
+    }, [props.name, props.author, props.publisher, props.publishYear, props.price, props.typeArray])
 
     useEffect(() => {
         if (enableEdit === false) {
@@ -67,7 +67,6 @@ export function BookInfoAdmin(props) {
             addBtn.innerHTML = "Chỉnh sửa"
             setEnableEdit(cur => !cur)
         }
-        props.setAPI(cur => !cur)
     }
 
     //Handle Click Edit
@@ -143,6 +142,23 @@ export function BookInfoAdmin(props) {
                 refreshBtn.style.display = "none"
                 addBtn.innerHTML = "Chỉnh sửa"
                 addBtn.style.cursor = "pointer"
+
+                const arr = props.bookAPI.map((ele, index) => {
+                    if (ele.bookId === props.bookId) {
+                        return {
+                            ...props.bookAPI[index],
+                            name: name,
+                            author: author,
+                            publisher: publisher,
+                            publishYear: Number(publishYear),
+                            price: Number(cost),
+                            updatedDate: updatedDate.toISOString(),
+                            genres: tempType
+                        }
+                    }
+                    else return ele
+                })
+                props.setBookAPI(arr)
             }
 
         }

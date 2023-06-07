@@ -13,7 +13,8 @@ export function AcceptRemove(props) {
     async function handleClickAccept() {
         acceptBTN.style.cursor = "wait"
 
-        for (var a of props.selected) {
+        var arr = []
+        for (let a of props.selected) {
             const option = {
                 method: "DELETE",
                 headers: {
@@ -22,8 +23,12 @@ export function AcceptRemove(props) {
                 },
             }
             await fetch(props.fetchLink + a[props.ele], option)
+            if (arr.length === 0)
+                arr = props.listAPI.filter((ele) => ele[props.ele] !== a[props.ele])
+            else
+                arr = arr.filter((ele) => ele[props.ele] !== a[props.ele])
         }
-
+        await props.setListAPI(arr)
 
         const acceptTable = document.querySelector(".accept-table")
         acceptTable.style.display = "none"
@@ -32,7 +37,6 @@ export function AcceptRemove(props) {
 
         props.handleClearRows()
         props.handleSelected()
-        props.setAPI(cur => !cur)
 
         acceptBTN.style.cursor = "pointer"
     }

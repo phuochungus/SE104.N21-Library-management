@@ -59,13 +59,9 @@ export function AddUser(props) {
             }
 
             await fetch('https://library2.herokuapp.com/users/for_admin/', option)
-                .then(res => {
-                    if (res.status === 409)
-                        return res.json()
-                }
-                )
+                .then(res => res.json())
                 .then(async res => {
-                    if (res) {
+                    if (res.message) {
                         switch (res.message) {
                             case "Username is already taken": res.mes = "Tên tài khoản đã tồn tại"; break;
                             case "Email or username already taken": res.mes = "Email đã được sử dụng"; break;
@@ -82,13 +78,15 @@ export function AddUser(props) {
                         const overLay = document.querySelector("#overlay")
                         overLay.style.display = "none"
 
+                        const arr = [res, ...props.userAPI]
+                        props.setUserAPI(arr)
+
                         setUserName("")
                         setUser("")
                         setBirth("")
                         setEmail("")
                         setAddress("")
                         setReaderType("Loại độc giả")
-                        props.setAPI(cur => !cur)
                         addbtn.style.cursor = "pointer"
                     }
                 })

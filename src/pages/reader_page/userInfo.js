@@ -31,7 +31,7 @@ export function UserInfo(props) {
         setAddress(props.ele.address)
         setReaderType(props.ele.type)
         setCreatedDate(new Date(props.ele.createdDate).toLocaleDateString('fr-CA'))
-    }, [props])
+    }, [props.ele.name, props.ele.username, props.ele.birth, props.ele.email, props.ele.address, props.ele.type, props.ele.createdDate, props.ele])
 
     useEffect(() => {
         if (enableEdit === false) {
@@ -56,16 +56,9 @@ export function UserInfo(props) {
             historyCheck.style.display = "flex"
             refreshBtn.style.display = "none"
             addBtn.innerHTML = "Chỉnh sửa"
+            addBtn.style.width = "100px"
             setEnableEdit(cur => !cur)
         }
-        props.setAPI(cur => !cur)
-        setUserName(props.ele.name)
-        setUser(props.ele.username)
-        setBirth(new Date(props.ele.birth).toLocaleDateString('fr-CA'))
-        setEmail(props.ele.email)
-        setAddress(props.ele.address)
-        setReaderType(props.ele.type)
-        setCreatedDate(new Date(props.ele.createdDate).toLocaleDateString('fr-CA'))
     }
     //Handle Click Edit
     async function handleClickEdit() {
@@ -131,6 +124,21 @@ export function UserInfo(props) {
                             addBtn.style.cursor = "pointer"
                         }
                         else {
+                            const arr = props.userAPI.map((ele, index) => {
+                                if (ele.userId === props.ele.userId) {
+                                    return {
+                                        ...props.userAPI[index],
+                                        username: user,
+                                        email: email,
+                                        name: userName,
+                                        birth: birth,
+                                        address: address,
+                                        type: readerType
+                                    }
+                                }
+                                else return ele
+                            })
+                            props.setUserAPI(arr)
 
                             //prevent edit
                             setEnableEdit(cur => !cur)

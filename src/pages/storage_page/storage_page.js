@@ -17,7 +17,6 @@ export default function StoragePage() {
     const [status, setStatus] = useState("Tình trạng")
 
     //Define data books
-    const [API, setAPI] = useState(true)
     const [bookAPI, setBookAPI] = useState([]) //original-books
     const [books, setBooks] = useState([]) //handle-books
     const [genres, setGenres] = useState([]) //handle-genres
@@ -85,7 +84,7 @@ export default function StoragePage() {
                     return books
                 })
             })
-    }, [API])
+    }, [])
 
     //Call API Genres
     useEffect(() => {
@@ -191,12 +190,14 @@ export default function StoragePage() {
     return (
         <div className="home-page">
             <AddBook
-                setAPI={setAPI}
-                genres={genres}>
+                genres={genres}
+                bookAPI={bookAPI}
+                setBookAPI={setBookAPI}>
             </AddBook>
             <AcceptRemove
+                listAPI={bookAPI}
+                setListAPI={setBookAPI}
                 selected={selectedBooks || []}
-                setAPI={setAPI}
                 handleClearRows={handleClearRows}
                 handleSelected={handleSelectedBooks}
                 fetchLink={"https://library2.herokuapp.com/books/book/"}
@@ -204,6 +205,8 @@ export default function StoragePage() {
             >
             </AcceptRemove>
             <BookInfoAdmin
+                bookAPI={bookAPI}
+                setBookAPI={setBookAPI}
                 bookInfo={bookInfo}
                 bookId={bookInfo.bookId}
                 name={bookInfo.name || ""}
@@ -217,7 +220,6 @@ export default function StoragePage() {
                 genres={genres || []}
                 typeArray={typeArray || []}
                 setTypeArray={setTypeArray || []}
-                setAPI={setAPI}
             />
             <div className="main-title">
                 <span>KHO SÁCH</span>

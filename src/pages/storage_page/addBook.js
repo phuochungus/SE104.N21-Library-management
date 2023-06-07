@@ -70,7 +70,7 @@ export function AddBook(props) {
         const addBtn = document.querySelector(".add-btn")
         addBtn.style.cursor = "wait"
         const tempType = []
-        console.log(addBtn)
+
         type.forEach((ele1, index1) => {
             props.genres.forEach((ele2) => {
                 if (nomalize(ele1) === nomalize(ele2.name)) {
@@ -110,6 +110,11 @@ export function AddBook(props) {
                 })
             }
             await fetch('https://library2.herokuapp.com/books/', option)
+                .then(res => res.json())
+                .then(res => {
+                    const arr = [res, ...props.bookAPI]
+                    props.setBookAPI(arr)
+                })
 
             const dropdownContent = document.querySelector(".dropdown-content")
             if (dropdownContent.style.display === "block") {
@@ -134,7 +139,7 @@ export function AddBook(props) {
             setPublisher("")
             setPublishYear("")
             setPrice("")
-            props.setAPI(cur => !cur)
+
             addBtn.style.cursor = "pointer"
 
         }

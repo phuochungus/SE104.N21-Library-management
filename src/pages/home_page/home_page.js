@@ -17,7 +17,6 @@ export default function HomePage() {
     const [type, setType] = useState("Thể loại")
 
     //Define API
-    const [API, setAPI] = useState(true)
     const [bookAPI, setBookAPI] = useState([]) //original-books
     const [books, setBooks] = useState([]) //handle-books
     const [genres, setGenres] = useState([]) //handle-genres
@@ -82,7 +81,7 @@ export default function HomePage() {
                     return books
                 })
             })
-    }, [API])
+    }, [])
 
     //Call API Genres
     useEffect(() => {
@@ -166,12 +165,13 @@ export default function HomePage() {
         )
         setBooks(newBooks)
     }
-
     // Render UI
     return (
         <div className="home-page">
             {isAdmin ?
                 <BookInfoAdmin
+                    bookAPI={bookAPI}
+                    setBookAPI={setBookAPI}
                     bookInfo={bookInfo}
                     bookId={bookInfo.bookId}
                     name={bookInfo.name || ""}
@@ -185,7 +185,6 @@ export default function HomePage() {
                     genres={genres || []}
                     typeArray={typeArray || []}
                     setTypeArray={setTypeArray || []}
-                    setAPI={setAPI}
                 /> :
                 <BookInfoUser
                     bookId={bookInfo.bookId}
