@@ -1,7 +1,7 @@
 //-------Main-body Style-------
 .body-app {
-    min-width: 1210px;
-    min-height: 625px;
+    min-width: 1215px;
+    min-height: 630px;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -13,8 +13,8 @@
     background-repeat: no-repeat;
 
     .main-body {
-        min-width: 1210px;
-        min-height: 625px;
+        min-width: 1215px;
+        min-height: 630px;
         width: 98vw;
         height: 98vh;
         display: flex;
@@ -111,15 +111,13 @@
 
         // -----------Accept table CSS------------
         .accept-signout {
-            min-width: 384px;
-            min-height: 112px;
+            width: 385px;
+            height: 115px;
             z-index: 10;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 25vw;
-            height: 15vh;
             background: var(--body-color);
             display: none;
             flex-direction: column;

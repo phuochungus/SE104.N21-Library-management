@@ -70,7 +70,6 @@ export default function ReaderPage() {
             sortable: true,
         },
         {
-            width: "160px",
             name: "Ngày lập thẻ",
             selector: row => row.created,
             sortable: true,

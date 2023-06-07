@@ -59,7 +59,6 @@ export default function HomePage() {
             sortable: true,
         },
         {
-            width: "192.3px",
             name: "Tình trạng",
             selector: row => row.Status,
             sortable: true,

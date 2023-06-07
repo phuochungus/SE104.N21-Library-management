@@ -45,11 +45,9 @@
     background: var(--main-font-color);
 
     .info-User {
-        min-width: 614px;
-        min-height: 500px;
+        width: 615px;
+        height: 500px;
         display: flex;
-        width: 40vw;
-        height: 70vh;
         background: var(--body-color);
         flex-direction: column;
         align-items: center;

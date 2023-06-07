@@ -49,7 +49,6 @@ export default function BRPage() {
             sortable: true,
         },
         {
-            width: "125px",
             name: "Tình trạng",
             selector: row => row.status,
             sortable: true,
@@ -71,7 +70,6 @@ export default function BRPage() {
             sortable: true,
         },
         {
-            width: "215px",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,

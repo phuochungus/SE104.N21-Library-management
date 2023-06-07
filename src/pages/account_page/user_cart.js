@@ -49,6 +49,7 @@ export default function UserCart() {
     //Define table props cart
     const columnsCart = [
         {
+            width: "85px",
             name: "STT",
             selector: row => row.STT,
             sortable: true,
@@ -60,7 +61,6 @@ export default function UserCart() {
             sortable: true,
         },
         {
-            width: "198.5px",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
@@ -71,24 +71,23 @@ export default function UserCart() {
     const columnsReserved = [
         {
             name: "STT",
-            width: "80px",
+            width: "85px",
             selector: row => row.STT,
             sortable: true,
         },
         {
-            width: "150px",
+            width: "130px",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
-            width: "150px",
+            width: "130px",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
         },
         {
-            width: "115px",
             name: "Thời gian còn lại",
             selector: row => <span style={{ "color": "red" }}>{String(row.remainReserveTime.toFixed(2)) + ' giờ'}</span>,
             sortable: true,

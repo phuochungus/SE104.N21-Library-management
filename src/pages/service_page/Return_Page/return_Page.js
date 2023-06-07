@@ -51,7 +51,6 @@ export default function ReturnPage() {
 
         },
         {
-            width: "200px",
             name: "Số lượng sách",
             selector: row => row.quantity,
             sortable: true,

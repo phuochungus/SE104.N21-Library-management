@@ -62,7 +62,6 @@ export default function StoragePage() {
             sortable: true,
         },
         {
-            width: "154.3px",
             name: "Tình trạng",
             selector: row => row.Status,
             sortable: true,

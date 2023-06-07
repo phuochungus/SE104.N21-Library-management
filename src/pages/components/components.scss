@@ -1,14 +1,12 @@
 // -------------------Info table CSS----------------------
 .info-table {
-    min-width: 614px;
-    min-height: 500px;
+    width: 615px;
+    height: 500px;
     z-index: 10;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40vw;
-    height: 70vh;
     background: var(--body-color);
     display: none;
     flex-direction: column;
@@ -144,8 +142,8 @@
 
 // -------------------Info table Edit CSS----------------------
 .info-table-Edit {
-    min-width: 614px;
-    min-height: 500px;
+    width: 615px;
+    height: 500px;
     z-index: 10;
     position: fixed;
     top: 50%;
