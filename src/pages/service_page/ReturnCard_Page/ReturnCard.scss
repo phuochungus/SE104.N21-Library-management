@@ -21,7 +21,7 @@
             .tittle {
                 font-family: var(--main-font);
                 font-style: bold;
-                font-size: 20px;
+                font-size: clamp(16px, 1.3vw, 20px);
                 margin-top: 15px;
 
             }
@@ -33,7 +33,7 @@
 
                 span {
                     margin-left: 15px;
-                    font-size: 14px;
+                    font-size: clamp(11.2px, 0.92vw, 14px);
                 }
 
                 input {
@@ -58,7 +58,7 @@
             .tittle {
                 font-family: var(--main-font);
                 font-style: bold;
-                font-size: 20px;
+                font-size: clamp(16px, 1.3vw, 20px);
                 margin-top: 15px;
 
             }
@@ -79,7 +79,7 @@
 
                     span {
                         margin-left: 15px;
-                        font-size: 14px;
+                        font-size: clamp(11.2px, 0.92vw, 14px);
                     }
 
                     input {
@@ -108,7 +108,7 @@
                 .fine-tittle {
                     font-family: var(--main-font);
                     font-style: bold;
-                    font-size: 20px;
+                    font-size: clamp(16px, 1.3vw, 20px);
                 }
 
                 .fine-value {
@@ -129,14 +129,13 @@
             .ending-row {
                 display: flex;
                 gap: 15px;
-                margin: 14vh auto 20px;
+                margin: clamp(50px, 10vh, 100px) auto 20px;
 
                 .make-card {
-                    font-size: max(1vw, 12px);
+                    font-size: clamp(10px, 0.92vw, 14px);
                     text-align: center;
-                    width: 6.2vw;
+                    width: clamp(65px, 5.7vw, 95px);
                     color: white;
-                    min-width: 74px;
 
                     background: #070B72;
                     border-radius: 999px;
@@ -151,10 +150,9 @@
                 }
 
                 .print {
-                    font-size: max(1vw, 12px);
+                    font-size: clamp(10px, 0.92vw, 14px);
                     text-align: center;
-                    width: 6.2vw;
-                    min-width: 74px;
+                    width: clamp(65px, 5.7vw, 95px);
                     color: white;
                     background: #114D0F;
                     border-radius: 999px;
@@ -180,10 +178,11 @@
         align-items: center;
 
         .tittle {
+            height: 35px;
             color: white;
             font-family: var(--main-font);
             font-style: bold;
-            font-size: 25px;
+            font-size: clamp(20px, 1.65vw, 25px);
             background: 100px;
             margin-top: 15px;
 
@@ -201,7 +200,7 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
-            height: calc(100% - 82.6px);
+            height: calc(100% - 80px);
             margin-top: 30px;
             overflow: auto;
         }

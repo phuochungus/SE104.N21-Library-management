@@ -1,7 +1,8 @@
 //-------Main-body Style-------
 .body-app {
-    min-width: 1215px;
-    min-height: 630px;
+    font-size: clamp(12.8px, 1.05vw, 16px);
+    min-width: 1150px;
+    min-height: 565px;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -13,8 +14,8 @@
     background-repeat: no-repeat;
 
     .main-body {
-        min-width: 1215px;
-        min-height: 630px;
+        min-width: 1150px;
+        min-height: 565px;
         width: 98vw;
         height: 98vh;
         display: flex;
@@ -52,7 +53,7 @@
                     display: flex;
                     align-items: center;
                     gap: 15px;
-                    font-size: 18px;
+                    font-size: clamp(14.4px, 1.2vw, 18px);
 
                     &:hover {
                         background: #f8dcc4;
@@ -94,7 +95,7 @@
             .list-item {
                 display: flex;
                 align-items: center;
-                font-size: 18px;
+                font-size: clamp(14.4px, 1.2vw, 18px);
                 text-decoration: none;
                 color: white;
                 gap: 10px;
@@ -103,9 +104,6 @@
                 background: var(--main-font-color);
                 border: 1px solid var(--main-font-color);
 
-                &:hover {
-                    font-size: 20px;
-                }
             }
         }
 

@@ -48,31 +48,31 @@ export default function UserHistoryPage() {
     //Define table props 
     const columns = [
         {
-            width: "85px",
+            width: "80px",
             name: "STT",
             selector: row => row.STT,
             sortable: true,
         },
         {
-            width: "120px",
+            width: "8vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
-            width: "130.5px",
+            width: "8vw",
             name: "Tên sách",
             selector: row => row.bookName,
             sortable: true,
         },
         {
-            width: "131px",
+            width: "8vw",
             name: "Tác giả",
             selector: row => row.author,
             sortable: true,
         },
         {
-            width: "140px",
+            width: "8vw",
             name: "Ngày mượn",
             selector: row => new Date(row.borrowDate).toLocaleDateString('pt-PT'),
             sortable: true,
@@ -80,7 +80,7 @@ export default function UserHistoryPage() {
 
         },
         {
-            width: "140px",
+            width: "8vw",
             name: "Ngày trả",
             selector: row => new Date(row.returnDate).toLocaleDateString('pt-PT'),
             sortable: true,

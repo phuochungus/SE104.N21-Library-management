@@ -15,7 +15,7 @@
         .tittle {
             font-family: var(--main-font);
             font-style: bold;
-            font-size: 20px;
+            font-size: clamp(16px, 1.3vw, 20px);
             margin-top: 15px;
 
         }
@@ -27,7 +27,7 @@
 
             span {
                 margin-left: 15px;
-                font-size: 14px;
+                font-size: clamp(11.2px, 0.92vw, 14px);
             }
 
             input {
@@ -52,7 +52,7 @@
             color: white;
             font-family: var(--main-font);
             font-style: bold;
-            font-size: 25px;
+            font-size: clamp(20px, 1.65vw, 25px);
             background: 100px;
             margin-top: 15px;
 

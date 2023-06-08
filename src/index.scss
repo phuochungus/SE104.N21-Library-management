@@ -51,7 +51,7 @@ input[type="email"],
 input[type="password"] {
     font-family: var(--text-font);
     color: var(--text-font-color);
-    font-size: 16px;
+    font-size: clamp(12.8px, 1.05vw, 16px)
 }
 
 input:focus {
@@ -62,7 +62,7 @@ input:focus {
 ::placeholder {
     font-family: var(--text-font);
     color: var(--text-font-color);
-    font-size: 16px;
+    font-size: clamp(12.8px, 1.05vw, 16px)
 }
 
 input[type='checkbox'] {
@@ -125,7 +125,7 @@ button {
     border: 1px solid;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: clamp(12.8px, 1.05vw, 16px);
     font-family: var(--text-font);
 
 }
@@ -148,14 +148,10 @@ button {
     color: var(--main-font-color);
     font-weight: bold;
     float: right;
-    font-size: 22px;
+    font-size: clamp(17.6px, 1.45vw, 22px);
     line-height: 20px;
     cursor: pointer;
     margin-right: 10px;
-}
-
-.closebtn:hover {
-    font-size: 25px;
 }
 
 .alert {

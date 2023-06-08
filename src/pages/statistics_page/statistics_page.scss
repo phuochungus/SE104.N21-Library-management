@@ -14,7 +14,7 @@
         cursor: pointer;
         text-decoration: none;
         color: var(--main-font-color);
-        font-size: 25px;
+        font-size: clamp(20px, 1.65vw, 25px);
         background: var(--body-color);
         font-family: var(--main-font);
         display: flex;
@@ -48,7 +48,7 @@
             color: white;
             font-family: var(--main-font);
             font-style: bold;
-            font-size: 25px;
+            font-size: clamp(20px, 1.65vw, 25px);
             margin: auto;
         }
     }
@@ -77,7 +77,7 @@
             color: white;
             font-family: var(--main-font);
             font-style: bold;
-            font-size: 25px;
+            font-size: clamp(20px, 1.65vw, 25px);
             margin: auto;
         }
 
@@ -111,7 +111,7 @@
                 span {
                     display: flex;
                     align-items: center;
-                    font-size: 18px;
+                    font-size: clamp(14.4px, 1.2vw, 18px);
                     font-family: var(--main-font);
                 }
             }
@@ -163,7 +163,7 @@
 
 
             span:first-child {
-                font-size: 18px;
+                font-size: clamp(14.4px, 1.2vw, 18px);
                 font-family: var(--main-font);
             }
 

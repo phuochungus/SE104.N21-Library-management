@@ -31,7 +31,7 @@ export default function BorrowCard(props) {
                     <input
                         className="input2"
                         type="text"
-                        style={{ "width": "100%" }}
+                        style={{ "width": "99%" }}
                         defaultValue={props.ele.authorName}
                     ></input>
                 </div>
@@ -50,7 +50,7 @@ export default function BorrowCard(props) {
                 >
                     <span>Ngày mượn</span>
                     <input
-                        style={{ "width": "100%" }}
+                        style={{ "width": "99%" }}
                         className="input2"
                         type="text"
                         defaultValue={new Date(props.ele.createdDate).toLocaleDateString('pt-PT')}

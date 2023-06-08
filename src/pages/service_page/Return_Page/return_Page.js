@@ -31,19 +31,19 @@ export default function ReturnPage() {
             sortable: true,
         },
         {
-            width: "271px",
+            width: "15vw",
             name: "Tên đăng nhập",
             selector: row => row.username,
             sortable: true,
         },
         {
-            width: "271.3px",
+            width: "15vw",
             name: "Tên độc giả",
             selector: row => row.name,
             sortable: true,
         },
         {
-            width: "250px",
+            width: "15vw",
             name: "Ngày trả",
             selector: row => new Date(row.createdDate).toLocaleDateString('pt-PT'),
             sortable: true,
@@ -51,12 +51,12 @@ export default function ReturnPage() {
 
         },
         {
+            width: "14.5vw",
             name: "Số lượng sách",
             selector: row => row.quantity,
             sortable: true,
         },
         {
-            width: "115px",
             name: "Chi tiết",
             selector: row => row.detail,
         },

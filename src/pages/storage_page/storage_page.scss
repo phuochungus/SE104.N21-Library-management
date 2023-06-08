@@ -11,7 +11,7 @@
         border: 1px solid;
         border-radius: 15px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: clamp(12.8px, 1.05vw, 16px);
         font-family: var(--text-font);
         padding: 15px 30px 15px;
 
@@ -28,7 +28,7 @@
         border: 1px solid;
         border-radius: 15px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: clamp(12.8px, 1.05vw, 16px);
         font-family: var(--text-font);
         padding: 15px 30px 15px;
         margin-right: 30px;
@@ -93,7 +93,7 @@
 // -------------Add-table CSS-----------------
 .add-table {
     width: 615px;
-    height: 500px;
+    height: 485px;
     z-index: 10;
     position: fixed;
     top: 50%;
@@ -109,7 +109,7 @@
     .table-title {
         font-family: var(--main-font);
         font-style: bold;
-        font-size: 25px;
+        font-size: clamp(20px, 1.65vw, 25px);
         background: 100px;
         margin-top: 15px;
     }
@@ -121,7 +121,7 @@
 
         span {
             margin-left: 15px;
-            font-size: 14px;
+            font-size: clamp(11.2px, 0.92vw, 14px);
         }
 
         input:not([type="checkbox"]) {

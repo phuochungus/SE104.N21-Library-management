@@ -49,13 +49,13 @@ export default function UserCart() {
     //Define table props cart
     const columnsCart = [
         {
-            width: "85px",
+            width: "80px",
             name: "STT",
             selector: row => row.STT,
             sortable: true,
         },
         {
-            width: "200px",
+            width: "9vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
@@ -71,18 +71,18 @@ export default function UserCart() {
     const columnsReserved = [
         {
             name: "STT",
-            width: "85px",
+            width: "80px",
             selector: row => row.STT,
             sortable: true,
         },
         {
-            width: "130px",
+            width: "7vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
-            width: "130px",
+            width: "7.5vw",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
@@ -281,6 +281,7 @@ export default function UserCart() {
                             <div className="print order" onClick={handleClickBorrow}>Đặt mượn</div>
                         </div>
                     </div>
+                    <div className="attention"></div>
                 </div>
                 <div className="borrowed-list">
                     <div className="the-table">

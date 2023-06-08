@@ -28,6 +28,7 @@ export default function BorrowByGenres() {
     //Define table props 
     const columns = [
         {
+            width: "85px",
             name: "STT",
             selector: row => row.STT,
             sortable: true,

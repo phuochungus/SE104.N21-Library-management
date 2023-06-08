@@ -31,7 +31,7 @@
 
             p {
                 margin: 1rem 2rem 1rem 2rem;
-                font-size: 25px;
+                font-size: clamp(20px, 1.65vw, 25px);
                 font-family: "Anton";
                 color: #8f3034;
                 pointer-events: none;

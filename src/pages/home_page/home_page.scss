@@ -14,7 +14,7 @@
             color: white;
             font-family: var(--main-font);
             font-style: bold;
-            font-size: 25px;
+            font-size: clamp(20px, 1.65vw, 25px);
             margin: auto;
         }
     }
@@ -47,7 +47,7 @@
                 border: 0px;
                 border-bottom: var(--main-font-color) 1px solid;
                 font-family: var(--text-font);
-                font-size: 16px;
+                font-size: clamp(12.8px, 1.05vw, 16px);
                 color: var(--text-font-color);
                 outline: 0px;
                 width: 190px;

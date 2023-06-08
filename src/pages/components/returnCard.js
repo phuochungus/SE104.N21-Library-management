@@ -36,7 +36,7 @@ export default function ReturnCard(props) {
                 <div className="info-row" style={{ "width": "20.71%", "minWidth": "none" }}>
                     <span>Ngày mượn</span>
                     <input
-                        style={{ "width": "100%" }}
+                        style={{ "width": "99%" }}
                         className="input2"
                         type="text"
                         defaultValue={borrowedDate.toLocaleDateString('pt-PT')}

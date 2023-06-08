@@ -37,13 +37,13 @@ export default function BRPage() {
             sortable: true,
         },
         {
-            width: "140px",
+            width: "8vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
-            width: "150px",
+            width: "8vw",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
@@ -64,7 +64,7 @@ export default function BRPage() {
             sortable: true,
         },
         {
-            width: "200px",
+            width: "8vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,

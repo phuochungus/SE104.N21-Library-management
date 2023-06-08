@@ -34,49 +34,49 @@ export default function ReaderPage() {
     //Define table props 
     const columns = [
         {
-            width: "85px",
+            width: "80px",
             name: "STT",
             selector: row => row.STT,
             sortable: true,
         },
         {
-            width: "160px",
+            width: "9.5vw",
             name: "Tên đăng nhập",
             selector: row => row.username,
             sortable: true,
         },
         {
-            width: "160px",
+            width: "9.5vw",
             name: "Họ tên",
             selector: row => row.name,
             sortable: true,
         },
         {
-            width: "144.3px",
+            width: "9.5vw",
             name: "Loại",
             selector: row => row.type,
             sortable: true,
         },
         {
-            width: "160px",
+            width: "9vw",
             name: "Địa chỉ",
             selector: row => row.address,
             sortable: true,
         },
         {
-            width: "160px",
+            width: "9vw",
             name: "Email",
             selector: row => row.email,
             sortable: true,
         },
         {
+            width: "9.5vw",
             name: "Ngày lập thẻ",
             selector: row => row.created,
             sortable: true,
             sortFunction: createdDateSort
         },
         {
-            width: "115px",
             name: "Hành động",
             selector: row => row.Action,
         },

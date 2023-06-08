@@ -44,7 +44,7 @@ export default function BorrowByGenres() {
             sortable: true,
         },
         {
-            name: "Tỉ lệ",
+            name: "Tỉ lệ (%)",
             selector: row => row.percentage,
             sortable: true,
         }

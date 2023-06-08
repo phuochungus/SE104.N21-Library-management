@@ -3,14 +3,14 @@ export const CustomStyle = {
         style: {
             backgroundColor: "white",
             color: "#8F3034",
-            fontSize: "16px"
+            fontSize: "clamp(12.8px,1.05vw,16px)",
         }
     },
     headCells: {
         style: {
             color: "#8F3034",
             justifyContent: "center",
-            fontSize: "16px",
+            fontSize: "clamp(12.8px,1.05vw,16px)",
             backgroundColor: "#F6D3BD",
             borderRight: "0.5px solid #8F3034",
         }
