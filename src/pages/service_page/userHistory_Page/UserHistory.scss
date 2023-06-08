@@ -49,6 +49,7 @@
         align-items: center;
 
         .tittle {
+            height: 35px;
             color: white;
             font-family: var(--main-font);
             font-style: bold;
@@ -69,7 +70,7 @@
             display: flex;
             justify-content: center;
             width: 100%;
-            height: calc(100% - 82.6px);
+            height: calc(100% - 80px);
             margin-top: 30px;
             background: #8F3034;
         }
