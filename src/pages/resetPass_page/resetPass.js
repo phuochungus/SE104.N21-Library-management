@@ -2,6 +2,7 @@ import './resetPass.scss'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import alert from '../components/alert'
+import success from '../components/success'
 
 
 export default function ResetPassPage() {
@@ -34,6 +35,19 @@ export default function ResetPassPage() {
 
             }
             await fetch('https://library2.herokuapp.com/users/password_reset/', option)
+                .then(res => { if (res.status === 404) return res.json() })
+                .then(async res => {
+                    if (res) {
+                        switch (res.message) {
+                            case "Not found account with provided username and email": res.mes = "Không tìm thấy tài khoản"; break;
+                            default: break;
+                        }
+                        alert(res.mes)
+                    }
+                    else {
+                        success("Mật khẩu mới đã được gửi tới email")
+                    }
+                })
             reset.style.cursor = "pointer"
 
         }

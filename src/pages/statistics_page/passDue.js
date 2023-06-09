@@ -89,7 +89,6 @@ export default function BorrowByGenres() {
                     ele.STT = index + 1;
                     return ele
                 })
-                console.log(stats)
                 setStats(stats)
             })
     }

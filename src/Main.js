@@ -23,6 +23,7 @@ import ReturnCardPage from './pages/service_page/ReturnCard_Page/ReturnCard'
 import UserHistoryPage from './pages/service_page/userHistory_Page/UserHistory'
 import MyHistoryPage from './pages/service_page/myHistory/myHistory'
 import AdminInfo from './pages/account_page/adminInfo'
+import ChangePassPage from './pages/account_page/changePass/changePass'
 
 function Main() {
   const { isAdmin } = useContext(AppContext);
@@ -138,13 +139,13 @@ function Main() {
           <Route path="/Statistics/Genres" element={<BorrowByGenres />}></Route>
           <Route path="/Statistics/Passdue" element={<PassDue />}></Route>
           {/* SettingPage */}
-          <Route path="/Setting" element={<SettingPage />}></Route>
+          <Route path="/Setting/*" element={<SettingPage />}></Route>
           {/* AccountPage */}
           <Route path="/Account" element={<AccountPage />}></Route>
           <Route path="/Account/Cart" element={<UserCart />}></Route>
           <Route path="/Account/Info" element={<Info />}></Route>
           <Route path="/Account/AdminInfo" element={<AdminInfo />}></Route>
-          <Route path="/Account/ChangePass" element={<AccountPage />}></Route>
+          <Route path="/Account/ChangePass" element={<ChangePassPage />}></Route>
         </Routes>
         <div id="overlay"></div>
       </div>

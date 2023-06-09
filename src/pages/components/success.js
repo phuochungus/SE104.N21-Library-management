@@ -1,10 +1,10 @@
 function timeout(ms) {
     return new Promise(res => setTimeout(res, ms));
 }
-export default async function alert(cont) {
-    const content = document.querySelector(".alert .content-bar .content")
+export default async function success(cont) {
+    const content = document.querySelector(".success .content-bar .content")
     content.innerText = cont
-    const warning = document.querySelector(".alert")
+    const warning = document.querySelector(".success")
     warning.style.display = "flex"
     await timeout(600)
     warning.style.opacity = "1.0"

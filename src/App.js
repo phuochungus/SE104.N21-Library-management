@@ -40,6 +40,16 @@ function App() {
                 <span style={{ "width": "350px" }} className="content-bar"><span style={{ "fontWeight": "1000" }}>Lỗi! </span><span className="content">t might need attention.</span></span>
                 <span onClick={(e) => handleClickClose(e)} className="closebtn">&times;</span>
             </div>
+            <div style={{ "color": "#8F3034" }} className="success">
+                <div className="success-icon">
+                    <img
+                        src={require("./assets/icons/done.svg").default}
+                        alt=""
+                    />
+                </div>
+                <span style={{ "width": "250px" }} className="content-bar"><span style={{ "fontWeight": "1000" }}></span><span className="content">t might need attention.</span></span>
+                <span onClick={(e) => handleClickClose(e)} className="closebtn">&times;</span>
+            </div>
         </AppContext.Provider >
     );
 }
