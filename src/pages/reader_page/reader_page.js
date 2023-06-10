@@ -46,13 +46,13 @@ export default function ReaderPage() {
             sortable: true,
         },
         {
-            width: "9.5vw",
+            width: "13.5vw",
             name: "Họ tên",
             selector: row => row.name,
             sortable: true,
         },
         {
-            width: "9.5vw",
+            width: "5.5vw",
             name: "Loại",
             selector: row => row.type,
             sortable: true,

@@ -35,13 +35,13 @@ export default function HomePage() {
             sortable: true,
         },
         {
-            width: "12vw",
+            width: "9vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
-            width: "12vw",
+            width: "15vw",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,

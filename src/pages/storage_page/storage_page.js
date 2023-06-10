@@ -38,13 +38,13 @@ export default function StoragePage() {
             sortable: true,
         },
         {
-            width: "11.5vw",
+            width: "8.5vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
-            width: "11vw",
+            width: "15vw",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
@@ -62,7 +62,7 @@ export default function StoragePage() {
             sortable: true,
         },
         {
-            width: "11vw",
+            width: "10vw",
             name: "Tình trạng",
             selector: row => row.Status,
             sortable: true,
