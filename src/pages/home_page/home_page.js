@@ -7,6 +7,7 @@ import { BookInfoUser } from '../components/bookInfo-User'
 import { BookInfoAdmin } from '../components/bookInfo-Admin'
 import { CustomStyle } from '../components/table_props'
 import { Selection } from '../components/select'
+import statusSort from '../components/sortStatus'
 
 export default function HomePage() {
     const { isAdmin, userId, token } = useContext(AppContext);
@@ -63,6 +64,7 @@ export default function HomePage() {
             name: "Tình trạng",
             selector: row => row.Status,
             sortable: true,
+            sortFunction: statusSort
         },
         {
             name: "Hành động",

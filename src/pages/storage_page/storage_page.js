@@ -8,6 +8,7 @@ import { AcceptRemove } from '../components/acceptRemove'
 import { AddBook } from './addBook'
 import { Selection } from '../components/select'
 import alert from '../components/alert'
+import statusSort from '../components/sortStatus'
 
 export default function StoragePage() {
     //Define seacrh-tool
@@ -66,6 +67,8 @@ export default function StoragePage() {
             name: "Tình trạng",
             selector: row => row.Status,
             sortable: true,
+            sortFunction: statusSort,
+
         },
         {
             name: "Hành động",
