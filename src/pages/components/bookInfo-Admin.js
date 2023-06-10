@@ -192,13 +192,25 @@ export function BookInfoAdmin(props) {
         }
     }
     else {
-        checkAvai = "Không có sẵn"
-        const bookStatus = document.querySelector(".info-table-Edit .book-status")
-        if (bookStatus) {
-            bookStatus.style.backgroundColor = "#B65500"
-            bookStatus.style.color = "white"
-            bookStatus.style.border = "none"
+        if (props.bookInfo.user === null) {
+            checkAvai = "Ngưng lữu trữ"
+            const bookStatus = document.querySelector(".info-table-Edit .book-status")
+            if (bookStatus) {
+                bookStatus.style.backgroundColor = "#070B72"
+                bookStatus.style.color = "white"
+                bookStatus.style.border = "none"
+            }
         }
+        else {
+            checkAvai = "Không có sẵn"
+            const bookStatus = document.querySelector(".info-table-Edit .book-status")
+            if (bookStatus) {
+                bookStatus.style.backgroundColor = "#B65500"
+                bookStatus.style.color = "white"
+                bookStatus.style.border = "none"
+            }
+        }
+
     }
 
     //Render UI

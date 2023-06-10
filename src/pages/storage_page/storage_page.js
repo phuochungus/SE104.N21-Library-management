@@ -113,8 +113,12 @@ export default function StoragePage() {
             //Book availability
             if (ele.isAvailable)
                 ele.Status = (<span style={{ color: "#285D24" }}>Có sẵn</span>)
-            else
-                ele.Status = (<span style={{ color: "#B65500" }}>Không có sẵn</span>)
+            else {
+                if (ele.user === null)
+                    ele.Status = (<span style={{ color: "#070B72" }}>Ngưng lữu trữ</span>)
+                else
+                    ele.Status = (<span style={{ color: "#B65500" }}>Không có sẵn</span>)
+            }
 
             //Book actions
             ele.Action = (<div className="action">
