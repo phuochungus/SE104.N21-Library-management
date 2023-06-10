@@ -9,14 +9,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 600px;
-        height: 275px;
+        width: 700px;
+        height: 350px;
         margin: auto;
-        gap: 30px;
+        gap: 80px;
 
         .age-change {
             display: flex;
-            gap: 20px;
+            gap: 100px;
 
         }
 
@@ -25,7 +25,7 @@
 
             .option-differ {
                 height: 55px;
-                width: 520px;
+                width: 600px;
                 display: flex;
                 flex-direction: column;
 
@@ -46,7 +46,7 @@
                     }
 
                     input {
-                        width: 435px;
+                        width: 515px;
                         text-indent: 0px;
                         height: 25px;
                         border: none;

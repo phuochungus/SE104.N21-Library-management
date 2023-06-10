@@ -71,7 +71,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 95%;
-                height: 460px;
+                height: clamp(368px, 61.7vh, 552px);
                 background: #F5D1BB;
                 border-radius: 30px;
                 margin-bottom: 10px;
@@ -97,7 +97,7 @@
                     .data-table {
                         margin: 20px auto 25px;
                         width: 95%;
-                        height: 300px;
+                        height: clamp(240px, 40.23vh, 360px);
                         background: white;
 
                     }
@@ -105,6 +105,7 @@
                 }
 
                 .ending-row {
+                    margin-bottom: 10px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -178,7 +179,7 @@
                 display: flex;
                 flex-direction: column;
                 width: 95%;
-                height: 460px;
+                height: clamp(368px, 61.7vh, 552px);
                 background: #E9C7CA;
                 border-radius: 30px;
                 margin-bottom: 10px;
@@ -203,7 +204,7 @@
                     .data-table {
                         margin: 20px auto 25px;
                         width: 95%;
-                        height: 300px;
+                        height: clamp(240px, 40.23vh, 360px);
                         background: white;
 
                     }
@@ -211,6 +212,7 @@
                 }
 
                 .ending-row {
+                    margin-bottom: 10px;
                     display: flex;
                     align-items: center;
                     justify-content: center;

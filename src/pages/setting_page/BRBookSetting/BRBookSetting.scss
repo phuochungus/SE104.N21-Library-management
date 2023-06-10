@@ -9,14 +9,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 600px;
-        height: 350px;
+        width: 700px;
+        height: 420px;
         margin: auto;
-        gap: 30px;
+        gap: 70px;
 
         .br-change {
             display: flex;
-            gap: 20px;
+            gap: 100px;
 
         }
 
@@ -25,7 +25,7 @@
 
             .option-differ {
                 height: 55px;
-                width: 520px;
+                width: 600px;
                 display: flex;
                 flex-direction: column;
 
@@ -46,7 +46,7 @@
                     }
 
                     input {
-                        width: 435px;
+                        width: 515px;
                         text-indent: 0px;
                         height: 25px;
                         border: none;
@@ -58,7 +58,6 @@
         }
 
         .ending-row {
-            margin-top: 30px;
             display: flex;
             gap: 20px;
 

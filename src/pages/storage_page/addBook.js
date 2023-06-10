@@ -3,6 +3,7 @@ import { SelectType } from '../components/selectTypes'
 import nomalize from '../components/nomalize'
 import alert from '../components/alert'
 import { AppContext } from '../../App.js'
+import success from '../components/success'
 
 export function AddBook(props) {
     //define info Books
@@ -126,6 +127,9 @@ export function AddBook(props) {
                 if (ele.checked)
                     ele.checked = false
             })
+
+            success("Thêm thành công")
+
             const dropbtn = document.querySelector(".dropbtn span")
             dropbtn.innerHTML = "Thể loại"
             const addTable = document.querySelector(".add-table")

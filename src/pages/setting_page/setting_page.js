@@ -1,10 +1,21 @@
 import './setting_page.scss'
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, NavLink, useNavigate } from 'react-router-dom'
 import UserSettingPage from './userSetting/userSetting'
 import BookSettingPage from './bookSetting/bookSetting'
 import BRBookSettingPage from './BRBookSetting/BRBookSetting'
 
 export default function SettingPage() {
+    //define navigate
+    const navi = useNavigate()
+    const cur = window.location.pathname
+
+    //default /Setting/Users
+    useEffect(() => {
+        if (cur === "/Setting")
+            navi("/Setting/Users")
+    }, [navi, cur])
+
     return (<div className="setting-page">
         <div className="main-title">
             <span>TÙY CHỈNH</span>

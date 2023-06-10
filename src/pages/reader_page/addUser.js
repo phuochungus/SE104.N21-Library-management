@@ -2,6 +2,7 @@ import './reader_page.scss'
 import { useState } from 'react'
 import { Selection } from '../components/select'
 import alert from '../components/alert'
+import success from '../components/success'
 
 export function AddUser(props) {
     //Info-user
@@ -80,6 +81,8 @@ export function AddUser(props) {
 
                         const arr = [res, ...props.userAPI]
                         props.setUserAPI(arr)
+
+                        success("Thêm thành công")
 
                         setUserName("")
                         setUser("")

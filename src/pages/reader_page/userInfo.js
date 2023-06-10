@@ -59,6 +59,7 @@ export function UserInfo(props) {
             addBtn.style.width = "100px"
             setEnableEdit(cur => !cur)
         }
+        props.setUserInfo({ ...props.ele })
     }
     //Handle Click Edit
     async function handleClickEdit() {

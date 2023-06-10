@@ -1,3 +1,4 @@
+import success from './success'
 export function AcceptRemove(props) {
     const acceptBTN = document.querySelector(".accept-table .accept-btn")
 
@@ -30,6 +31,7 @@ export function AcceptRemove(props) {
         }
         await props.setListAPI(arr)
 
+        success("Xóa thành công")
         const acceptTable = document.querySelector(".accept-table")
         acceptTable.style.display = "none"
         const overLay = document.querySelector("#overlay")
