@@ -1,5 +1,6 @@
 import './components.scss'
 import { useEffect } from 'react'
+import success from './success'
 
 export function BookInfoUser(props) {
 
@@ -30,6 +31,8 @@ export function BookInfoUser(props) {
             })
         }
         await fetch('https://library2.herokuapp.com/book_shelf/', option)
+
+        success("Thêm vào giỏ sách thành công")
     }
     //Define a created Date
     const createdDate = new Date(props.createdDate)
