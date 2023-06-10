@@ -50,7 +50,7 @@ export function BookInfoUser(props) {
     }
     else {
         if (props.bookInfo.user === null) {
-            checkAvai = "Ngưng lữu trữ"
+            checkAvai = "Ngưng lưu trữ"
             const bookStatus = document.querySelector(".info-table .book-status")
             if (bookStatus) {
                 bookStatus.style.backgroundColor = "#070B72"
