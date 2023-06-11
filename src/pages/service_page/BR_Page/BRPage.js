@@ -87,7 +87,7 @@ export default function BRPage() {
             .then(res => {
                 setMaxBorrow(res)
             })
-        fetch("https://library2.herokuapp.com/rules/due_by_days/", {
+        fetch("https://library2.herokuapp.com/rules/borrow_interval/", {
             headers: {
                 'Authorization': 'Bearer ' + token
             }

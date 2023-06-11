@@ -39,7 +39,7 @@ export default function UserCart() {
             .then(res => {
                 setMaxBorrow(res)
             })
-        fetch("https://library2.herokuapp.com/rules/due_by_days/")
+        fetch("https://library2.herokuapp.com/rules/borrow_interval/")
             .then(res => res.json())
             .then(res => {
                 setDueDay(res)
