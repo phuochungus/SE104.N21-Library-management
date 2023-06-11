@@ -27,7 +27,7 @@ export default function BorrowCardPage() {
                 ></input>
             </div>
             <div className="info-row">
-                <span>Số lượng sách cần mượn</span>
+                <span>Số lượng sách</span>
                 <input
                     className="input "
                     type="text"

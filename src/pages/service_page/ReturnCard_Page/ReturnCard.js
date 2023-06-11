@@ -61,7 +61,7 @@ export default function ReturnCardPage() {
                     ></input>
                 </div>
                 <div className="info-row">
-                    <span>Số lượng sách cần trả</span>
+                    <span>Số lượng sách</span>
                     <input
                         className="input "
                         type="text"
