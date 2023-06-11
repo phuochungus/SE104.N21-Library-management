@@ -6,7 +6,7 @@ import { useState, useEffect, useContext } from 'react'
 import handleExport from '../components/handleExport'
 import { AppContext } from '../../App'
 import alert from '../components/alert'
-
+import { percenSort } from '../components/dateSort'
 
 export default function BorrowByGenres() {
     const { token } = useContext(AppContext);
@@ -47,6 +47,7 @@ export default function BorrowByGenres() {
             name: "Tỉ lệ (%)",
             selector: row => row.percentage,
             sortable: true,
+            sortFunction: percenSort
         }
     ]
 

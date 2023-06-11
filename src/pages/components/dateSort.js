@@ -41,4 +41,19 @@ function returnDateSort(rowA, rowB) {
 
     return 0;
 }
-export { createdDateSort, borrowDateSort, returnDateSort }
+
+function percenSort(rowA, rowB) {
+    const a = Number(rowA.percentage)
+    const b = Number(rowB.percentage)
+
+    if (a > b) {
+        return 1;
+    }
+
+    if (b > a) {
+        return -1;
+    }
+
+    return 0;
+}
+export { createdDateSort, borrowDateSort, returnDateSort, percenSort }
