@@ -17,6 +17,13 @@ export default function MyHistoryPage() {
             .then(brInfo => {
                 brInfo.map((ele, index) => {
                     ele.STT = index + 1
+
+                    if (ele.returnDate === null) {
+                        ele.returnDate = "--/--/--"
+                    }
+                    else
+                        ele.returnDate = new Date(ele.returnDate).toLocaleDateString('pt-PT')
+
                     return ele
                 })
                 setHistory(brInfo)
@@ -59,7 +66,7 @@ export default function MyHistoryPage() {
         },
         {
             name: "Ngày trả",
-            selector: row => new Date(row.returnDate).toLocaleDateString('pt-PT'),
+            selector: row => row.returnDate,
             sortable: true,
             sortFunction: returnDateSort
         },

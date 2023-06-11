@@ -32,13 +32,21 @@ export default function UserHistoryPage() {
             .then(brInfo => {
                 brInfo.map((ele, index) => {
                     ele.STT = index + 1
-                    ele.detail = (
-                        <div className="action">
-                            <span onClick={(e) => handleClick(ele, e)} style={{ cursor: "pointer" }}>
-                                <img className="icon icon-hover" src={require("./img/info.svg").default} alt="" />
-                            </span>
-                        </div>
-                    )
+
+                    if (ele.returnDate === null) {
+                        ele.returnDate = "--/--/--"
+                    }
+                    else {
+                        ele.returnDate = new Date(ele.returnDate).toLocaleDateString('pt-PT')
+                        ele.detail = (
+                            <div className="action">
+                                <span onClick={(e) => handleClick(ele, e)} style={{ cursor: "pointer" }}>
+                                    <img className="icon icon-hover" src={require("./img/info.svg").default} alt="" />
+                                </span>
+                            </div>
+                        )
+                    }
+
                     return ele
                 })
                 setHistory(brInfo)
@@ -82,7 +90,7 @@ export default function UserHistoryPage() {
         {
             width: "8vw",
             name: "Ngày trả",
-            selector: row => new Date(row.returnDate).toLocaleDateString('pt-PT'),
+            selector: row => row.returnDate,
             sortable: true,
             sortFunction: returnDateSort
         },
