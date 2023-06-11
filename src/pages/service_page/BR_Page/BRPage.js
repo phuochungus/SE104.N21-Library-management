@@ -180,6 +180,7 @@ export default function BRPage() {
                 .then(res => res.json())
                 .then(book => {
                     if (book.message) {
+                        console.log(book.message)
                         alert(`Người dùng đã mượn tối đa ${maxBorrow} cuốn trong vòng ${dueDay} ngày`)
                         print.style.cursor = "pointer"
                     }

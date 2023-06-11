@@ -171,6 +171,7 @@ export default function UserCart() {
                         })
                         .then(res => {
                             if (res) {
+                                console.log(res.message)
                                 alert(`Bạn đã mượn tối đa ${maxBorrow} cuốn trong vòng ${dueDay} ngày`)
                             }
                         }
