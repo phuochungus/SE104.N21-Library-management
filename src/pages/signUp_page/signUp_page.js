@@ -15,6 +15,10 @@ export default function SignUpPage() {
             alert("Thông tin không được để trống")
             signUp.style.cursor = "pointer"
         }
+        else if (pass.length < 8) {
+            alert("Mật khẩu phải có ít nhất 8 ký tự")
+            signUp.style.cursor = "pointer"
+        }
         else {
             const option = {
                 method: 'POST',

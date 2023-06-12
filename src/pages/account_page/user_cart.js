@@ -168,7 +168,7 @@ export default function UserCart() {
             print.style.cursor = "wait"
 
             for (var a of selectedCartBooks) {
-                if (a.user) {
+                if (a.isAvailable) {
                     alert("Sách hiện không có sẵn")
                 }
                 else {

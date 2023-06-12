@@ -22,6 +22,8 @@ export default function Info() {
 
         if (cur === "" || newPass === "" || again === "")
             alert("Thông tin không được để trống")
+        else if (newPass.length < 8)
+            alert("Mật khẩu mới phải có ít nhất 8 ký tự")
         else if (newPass !== again)
             alert("Mật khẩu mới không khớp")
         else {
