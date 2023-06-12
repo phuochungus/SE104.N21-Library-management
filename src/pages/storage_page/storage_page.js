@@ -111,28 +111,33 @@ export default function StoragePage() {
         async function handleClickCopy(ele, e) {
             e.target.style.cursor = "wait"
 
-            const option = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: ele.name,
-                    author: ele.author,
-                    publisher: ele.publisher,
-                    publishYear: ele.publishYear,
-                    price: ele.price,
-                    genreIds: ele.genres.map(ele => ele.genreId)
-                })
-            }
-            await fetch('https://library2.herokuapp.com/books/', option)
-                .then(res => res.json())
-                .then(res => {
-                    const arr = [res, ...bookAPI]
-                    setBookAPI(arr)
-                })
+            if (ele.isAvailable === false && ele.user === null)
+                alert("Sách hiện tại đã ngưng lưu trữ")
+            else {
+                const option = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: ele.name,
+                        author: ele.author,
+                        publisher: ele.publisher,
+                        publishYear: ele.publishYear,
+                        price: ele.price,
+                        genreIds: ele.genres.map(ele => ele.genreId)
+                    })
+                }
+                await fetch('https://library2.herokuapp.com/books/', option)
+                    .then(res => res.json())
+                    .then(res => {
+                        const arr = [res, ...bookAPI]
+                        setBookAPI(arr)
+                    })
 
-            success("Sao chép sách thành công")
+                success("Sao chép sách thành công")
+            }
+
             e.target.style.cursor = "pointer"
         }
 
