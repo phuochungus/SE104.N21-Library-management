@@ -115,8 +115,8 @@ export default function ReturnPage() {
     function handleClickSearch() {
         const date = new Date(returnedDate).toLocaleDateString('pt-PT')
         const newReSession = reSessionAPI.filter((ele) => {
-            return (userName === "" || userName === ele.username) &&
-                (name === "" || nomalize(name) === nomalize(ele.name)) &&
+            return (userName === "" || nomalize(ele.username).includes(nomalize(userName))) &&
+                (name === "" || nomalize(ele.name).includes(nomalize(name))) &&
                 (returnedDate === "" || date === new Date(ele.createdDate).toLocaleDateString('pt-PT'))
         }
         )

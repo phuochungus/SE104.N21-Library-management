@@ -83,8 +83,8 @@ export default function BRHistoryPage() {
     //Handle clickSearch
     function handleClickSearch() {
         const newUsers = usersAPI.filter((ele) => {
-            return (userName === "" || userName === ele.username) &&
-                (name === "" || nomalize(name) === nomalize(ele.name))
+            return (userName === "" || nomalize(ele.username).includes(nomalize(userName))) &&
+                (name === "" || nomalize(ele.name).includes(nomalize(name)))
         }
         )
         setUsers(newUsers)

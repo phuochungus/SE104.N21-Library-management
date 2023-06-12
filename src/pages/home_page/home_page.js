@@ -158,11 +158,12 @@ export default function HomePage() {
     //Handle clickSearch
     function handleClickSearch() {
         const newBooks = bookAPI.filter((ele) => {
-            return ((keyWord === "" || nomalize(keyWord) === nomalize(ele.name) ||
-                nomalize(keyWord) === nomalize(ele.author) ||
-                ele.genres.some((elex) => nomalize(elex.name) === nomalize(keyWord))) &&
-                (bookName === "" || nomalize(bookName) === nomalize(ele.name)) &&
-                (author === "" || nomalize(author) === nomalize(ele.author)) &&
+            return ((keyWord === "" || nomalize(ele.name).includes(nomalize(keyWord)) ||
+                nomalize(ele.author).includes(nomalize(keyWord)) ||
+                ele.genres.some((elex) => nomalize(elex.name).includes(nomalize(keyWord)))) &&
+
+                (bookName === "" || nomalize(ele.name).includes(nomalize(bookName))) &&
+                (author === "" || nomalize(ele.author).includes(nomalize(author))) &&
                 (nomalize(type) === nomalize("Tất cả") ||
                     nomalize(type) === nomalize("Thể loại") ||
                     ele.genres.some((elex) => nomalize(elex.name) === nomalize(type))))

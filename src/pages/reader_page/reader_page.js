@@ -145,8 +145,8 @@ export default function ReaderPage() {
     function handleClickSearch() {
         const date = new Date(createdDate).toLocaleDateString('pt-PT')
         const newUser = userAPI.filter((ele) => {
-            return (userName === "" || userName === ele.username) &&
-                (name === "" || nomalize(name) === nomalize(ele.name)) &&
+            return (userName === "" || nomalize(ele.username).includes(nomalize(userName))) &&
+                (name === "" || nomalize(ele.name).includes(nomalize(name))) &&
                 (type === "" || type === ele.type || type === "Loại độc giả") &&
                 (createdDate === "" || date === ele.created)
         }

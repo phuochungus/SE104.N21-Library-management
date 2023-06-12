@@ -146,8 +146,8 @@ export default function StoragePage() {
     //Handle click Search
     function handleClickSearch() {
         const newBooks = bookAPI.filter((ele) => {
-            return ((bookName === "" || nomalize(bookName) === nomalize(ele.name)) &&
-                (author === "" || nomalize(author) === nomalize(ele.author)) &&
+            return ((bookName === "" || nomalize(ele.name).includes(nomalize(bookName))) &&
+                (author === "" || nomalize(ele.author).includes(nomalize(author))) &&
                 (nomalize(type) === nomalize("Tất cả") ||
                     nomalize(type) === nomalize("Thể loại") ||
                     ele.genres.some((elex) => nomalize(elex.name) === nomalize(type))) &&

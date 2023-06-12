@@ -109,8 +109,8 @@ export default function BorrowPage() {
     function handleClickSearch() {
         const date = new Date(borrowedDate).toLocaleDateString('pt-PT')
         const newBrSession = brSessionAPI.filter((ele) => {
-            return (userName === "" || userName === ele.username) &&
-                (name === "" || nomalize(name) === nomalize(ele.name)) &&
+            return (userName === "" || nomalize(ele.username).includes(nomalize(userName))) &&
+                (name === "" || nomalize(ele.name).includes(nomalize(name))) &&
                 (borrowedDate === "" || date === new Date(ele.createdDate).toLocaleDateString('pt-PT'))
         }
         )
