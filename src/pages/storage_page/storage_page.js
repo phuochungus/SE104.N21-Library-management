@@ -9,6 +9,7 @@ import { AddBook } from './addBook'
 import { Selection } from '../components/select'
 import alert from '../components/alert'
 import statusSort from '../components/sortStatus'
+import success from '../components/success'
 
 export default function StoragePage() {
     //Define seacrh-tool
@@ -106,6 +107,35 @@ export default function StoragePage() {
             const infoTable = document.querySelector(".info-table-Edit")
             infoTable.style.display = "flex"
         }
+
+        async function handleClickCopy(ele, e) {
+            e.target.style.cursor = "wait"
+
+            const option = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: ele.name,
+                    author: ele.author,
+                    publisher: ele.publisher,
+                    publishYear: ele.publishYear,
+                    price: ele.price,
+                    genreIds: ele.genres.map(ele => ele.genreId)
+                })
+            }
+            await fetch('https://library2.herokuapp.com/books/', option)
+                .then(res => res.json())
+                .then(res => {
+                    const arr = [res, ...bookAPI]
+                    setBookAPI(arr)
+                })
+
+            success("Sao chép sách thành công")
+            e.target.style.cursor = "pointer"
+        }
+
         books.map((ele, index) => {
             //Book index
             ele.STT = index + 1;
@@ -128,11 +158,14 @@ export default function StoragePage() {
                 <span onClick={() => handleClickInfo(ele, index)} style={{ cursor: "pointer" }}>
                     <img className="icon icon-hover" src={require("./img/edit.svg").default} alt="" />
                 </span>
+                <span onClick={(e) => handleClickCopy(ele, e)} style={{ cursor: "pointer" }}>
+                    <img className="icon icon-hover" src={require("./img/copy.svg").default} alt="" />
+                </span>
             </div>)
             return ele
         })
 
-    }, [books, typeArray])
+    }, [books, typeArray, bookAPI])
 
     //Display default books
     useEffect(() => {
