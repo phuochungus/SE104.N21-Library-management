@@ -8,6 +8,8 @@ import { BookInfoAdmin } from '../components/bookInfo-Admin'
 import { CustomStyle } from '../components/table_props'
 import { Selection } from '../components/select'
 import statusSort from '../components/sortStatus'
+import success from '../components/success'
+import alert from '../components/alert'
 
 export default function HomePage() {
     const { isAdmin, userId, token } = useContext(AppContext);
@@ -102,6 +104,7 @@ export default function HomePage() {
             const infoTable = document.querySelector(".info-table")
             infoTable.style.display = "flex"
         }
+
         function handleClickInfoAdmin(ele) {
             setBookInfo(ele)
             setTypeArray(() => ele.genres.map((ele1) => ele1.name))
@@ -111,6 +114,40 @@ export default function HomePage() {
             const infoTable = document.querySelector(".info-table-Edit")
             infoTable.style.display = "flex"
         }
+
+        async function handleClickCopy(ele, e) {
+            e.target.style.cursor = "wait"
+
+            if (ele.isAvailable === false && ele.user === null)
+                alert("Sách hiện tại đã ngưng lưu trữ")
+            else {
+                const option = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: ele.name,
+                        author: ele.author,
+                        publisher: ele.publisher,
+                        publishYear: ele.publishYear,
+                        price: ele.price,
+                        genreIds: ele.genres.map(ele => ele.genreId)
+                    })
+                }
+                await fetch('https://library2.herokuapp.com/books/', option)
+                    .then(res => res.json())
+                    .then(res => {
+                        const arr = [res, ...bookAPI]
+                        setBookAPI(arr)
+                    })
+
+                success("Sao chép sách thành công")
+            }
+
+            e.target.style.cursor = "pointer"
+        }
+
         books.map((ele, index) => {
             //Book index
             ele.STT = index + 1;
@@ -134,6 +171,9 @@ export default function HomePage() {
                     <span onClick={() => handleClickInfoAdmin(ele, index)} style={{ cursor: "pointer" }}>
                         <img className="icon icon-hover" src={require("./img/edit.svg").default} alt="" />
                     </span>
+                    <span onClick={(e) => handleClickCopy(ele, e)} style={{ cursor: "pointer" }}>
+                        <img className="icon icon-hover" src={require("./img/copy.svg").default} alt="" />
+                    </span>
                 </div>)
             }
             else {
@@ -146,7 +186,7 @@ export default function HomePage() {
             return ele
         })
 
-    }, [books, typeArray, isAdmin])
+    }, [books, typeArray, isAdmin, bookAPI])
 
     //Dislay default books
     useEffect(() => {
