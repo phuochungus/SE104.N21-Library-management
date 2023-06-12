@@ -135,24 +135,30 @@ export default function BRPage() {
 
     //HandleClickSearch
     async function handleClickSearch() {
-        await fetch(`https://library2.herokuapp.com/books/book/${bookId}`,
-            {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                },
-            })
-            .then(res => res.json())
-            .then(book => {
-                if (book.isAvailable === false) { alert("Sách hiện không có sẵn") }
-                else {
-                    if (!reserved.some(ele => ele.bookId === book.bookId)) {
-                        book.STT = reserved.length + 1
-                        book.status = <span style={{ "color": "red" }}>Mới</span>
-                        setReserved(cur => [...cur, book])
+        if (bookId === "")
+            alert("Thông tin không được để trống")
+        else {
+            await fetch(`https://library2.herokuapp.com/books/book/${bookId}`,
+                {
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                })
+                .then(res => res.json())
+                .then(book => {
+                    if (book.message)
+                        alert("Không tìm thấy sách tương ứng")
+                    else if (book.isAvailable === false) { alert("Sách hiện không có sẵn") }
+                    else {
+                        if (!reserved.some(ele => ele.bookId === book.bookId)) {
+                            book.STT = reserved.length + 1
+                            book.status = <span style={{ "color": "red" }}>Mới</span>
+                            setReserved(cur => [...cur, book])
+                        }
                     }
-                }
 
-            })
+                })
+        }
     }
 
     //handle Click borrow

@@ -2,6 +2,7 @@ import './signUp_page.scss'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import alert from '../components/alert'
+import success from '../components/success'
 
 export default function SignUpPage() {
     const navigate = useNavigate();
@@ -33,8 +34,10 @@ export default function SignUpPage() {
                 .then(res => {
                     if (res.status === 409 || res.status === 400)
                         return res.json()
-                    else
+                    else {
+                        success("Đăng ký tài khoản thành công")
                         navigate("/SignIn")
+                    }
                 }
                 )
                 .then(async res => {

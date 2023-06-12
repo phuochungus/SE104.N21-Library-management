@@ -5,6 +5,7 @@ import { CustomStyle } from '../components/table_props'
 import './account_page.scss'
 import { AppContext } from '../../App'
 import alert from '../components/alert'
+import statusSort from '../components/sortStatus'
 
 export default function UserCart() {
     //Define info 
@@ -55,15 +56,22 @@ export default function UserCart() {
             sortable: true,
         },
         {
-            width: "9vw",
+            width: "5vw",
             name: "Mã sách",
             selector: row => row.bookId,
             sortable: true,
         },
         {
+            width: "10.2vw",
             name: "Tên sách",
             selector: row => row.name,
             sortable: true,
+        },
+        {
+            name: "Tình trạng",
+            selector: row => row.Status,
+            sortable: true,
+            sortFunction: statusSort
         },
     ]
 
@@ -106,6 +114,17 @@ export default function UserCart() {
                 books.map((ele, index) => {
                     //Book index
                     ele.STT = index + 1;
+
+                    //Book availability
+                    if (ele.isAvailable)
+                        ele.Status = (<span style={{ color: "#285D24" }}>Có sẵn</span>)
+                    else {
+                        if (ele.user === null)
+                            ele.Status = (<span style={{ color: "#070B72" }}>Ngưng lưu trữ</span>)
+                        else
+                            ele.Status = (<span style={{ color: "#B65500" }}>Không có sẵn</span>)
+                    }
+
                     return ele
                 })
                 setCart(books)
