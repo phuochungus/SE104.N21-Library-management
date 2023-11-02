@@ -1,4 +1,43 @@
 .service-page {
     width: calc(100% - var(--side-bar-width));
     background: var(--main-font-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .option {
+        width: 35%;
+        min-width: 420px;
+
+        button {
+            width: 100%;
+            height: 70px;
+            transition-duration: 0.3s;
+            align-items: center;
+            background-color: #f6ebd4;
+            border: none;
+            border-radius: 1rem;
+            margin-bottom: 20px;
+
+            &:active {
+                background-color: #e0997e;
+            }
+
+            &:hover {
+                background-color: #e0997e;
+            }
+
+            p {
+                margin: 1rem 2rem 1rem 2rem;
+                font-size: clamp(20px, 1.65vw, 25px);
+                font-family: "Anton";
+                color: #8f3034;
+                pointer-events: none;
+            }
+        }
+    }
+
+
 }

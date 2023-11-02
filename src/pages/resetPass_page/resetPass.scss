@@ -1,0 +1,116 @@
+// -----------Reset Pass Page CSS----------
+.body-app {
+    .reset-container {
+        width: 490px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 32px;
+        border-radius: 10px;
+        background: var(--body-color);
+        opacity: 95%;
+
+        .form-name {
+            font-family: var(--main-font);
+            color: var(--main-font-color);
+            font-size: 25px;
+            font-style: bold;
+            margin: 0px auto 10px;
+        }
+
+        .form-require {
+            margin: 0px auto 20px;
+            font-size: 14px;
+        }
+
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            margin: 5px auto 10px;
+
+            span {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            input {
+                border: 1px solid var(--main-font-color);
+                height: 40px;
+                width: 450px;
+                border-radius: 20px;
+                margin-top: 5px;
+            }
+        }
+
+        .btn-option {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            .return-option {
+                font-size: 17px;
+                text-align: center;
+                color: var(--main-font-color);
+                text-decoration: none;
+                width: 170px;
+                height: 15px;
+                padding: 12px 15px;
+                background: var(--body-color);
+                border: 1px solid var(--main-font-color);
+                border-radius: 999px;
+
+                &:hover {
+                    color: white;
+                    background: var(--main-font-color);
+                }
+            }
+
+            .reset-option {
+                color: white;
+                font-size: 17px;
+                width: 170px;
+                height: 15px;
+                padding: 12px 15px;
+                text-align: center;
+                cursor: pointer;
+                background: var(--main-font-color);
+                border: 1px solid var(--main-font-color);
+                border-radius: 999px;
+
+                &:hover {
+                    color: var(--main-font-color);
+                    background: white;
+                }
+            }
+        }
+
+        .ending-row {
+            display: flex;
+            font-size: 14px;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            .go-signUp {
+                color: var(--main-font-color);
+                padding: 5px 15px;
+                border: 1px solid var(--main-font-color);
+                border-radius: 999px;
+                cursor: pointer;
+                text-decoration: none;
+
+                &:hover {
+                    color: white;
+                    background: var(--main-font-color);
+                }
+
+            }
+        }
+    }
+
+
+
+
+}

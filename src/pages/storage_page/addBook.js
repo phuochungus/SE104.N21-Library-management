@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import { SelectType } from '../components/selectTypes'
+import nomalize from '../components/nomalize'
+import alert from '../components/alert'
+import { AppContext } from '../../App.js'
+import success from '../components/success'
+
 export function AddBook(props) {
     //define info Books
     const [name, setName] = useState("")
     const [author, setAuthor] = useState("")
-    const [type, setType] = useState("")
+    const [type, setType] = useState([])
     const [publisher, setPublisher] = useState("")
     const [publishYear, setPublishYear] = useState("")
     const [price, setPrice] = useState("")
+
+    const { token } = useContext(AppContext)
+    const [maxPY, setMaxPY] = useState()
 
     //Define present date
     const createdDate = new Date()
@@ -19,13 +28,39 @@ export function AddBook(props) {
         bookStatus.style.border = "none"
     }
 
+    useEffect(() => {
+        fetch("https://library2.herokuapp.com/rules/max_publish_year/", {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then(res => res.json())
+            .then(res => setMaxPY(res))
+    }, [token])
+
     //Hanlde click close
     function handleClickClose(e) {
         const addTable = document.querySelector(".add-table")
         addTable.style.display = "none"
+        const overLay = document.querySelector("#overlay")
+        overLay.style.display = "none"
+
+        const dropdownContent = document.querySelector(".dropdown-content")
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none"
+        }
+
+        const theChecks = document.querySelectorAll(".the-Checks")
+        theChecks.forEach((ele, index) => {
+            if (ele.checked)
+                ele.checked = false
+        })
+        const dropbtn = document.querySelector(".dropbtn span")
+        dropbtn.innerHTML = "Thể loại"
+
         setName("")
         setAuthor("")
-        setType("")
+        setType([])
         setPublisher("")
         setPublishYear("")
         setPrice("")
@@ -33,40 +68,86 @@ export function AddBook(props) {
 
     //Hanlde click add books
     async function handleClickAdd(e) {
-        const addTable = document.querySelector(".add-table")
-        addTable.style.display = "none"
+        const addBtn = document.querySelector(".add-btn")
+        addBtn.style.cursor = "wait"
+        const tempType = []
 
-        const option = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                author: author,
-                publisher: publisher,
-                publishYear: Number(publishYear),
-                price: Number(price),
-                borrowedDate: null,
-                reservedDate: null,
-                dueDate: null,
-                createdDate: createdDate.toISOString(),
-                updatedDate: createdDate.toISOString(),
-                user: null,
-                genres: [],
-                isAvailable: true
+        type.forEach((ele1, index1) => {
+            props.genres.forEach((ele2) => {
+                if (nomalize(ele1) === nomalize(ele2.name)) {
+                    tempType[index1] = ele2
+                }
             })
+        })
+
+        if (name === "" || author === "" || tempType.length === 0 || publisher === "" || publishYear === "" || price === "") {
+            alert("Thông tin không được để trống")
+            addBtn.style.cursor = "pointer"
+        }
+        else if (Number.isNaN(Number(price)) || Number(price) <= 0) {
+            alert("Trị giá không hợp lệ")
+            addBtn.style.cursor = "pointer"
+        }
+        else if (Number.isNaN(Number(publishYear)) || (Number(publishYear) < createdDate.getFullYear() - maxPY)
+            || (Number(publishYear) > createdDate.getFullYear())) {
+            alert("Năm xuất bản không hợp lệ")
+            addBtn.style.cursor = "pointer"
+        }
+        else {
+            const option = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    author: author,
+                    publisher: publisher,
+                    publishYear: Number(publishYear),
+                    price: Number(price),
+                    createdDate: createdDate.toISOString(),
+                    updatedDate: createdDate.toISOString(),
+                    genreIds: tempType.map(ele => ele.genreId)
+                })
+            }
+            await fetch('https://library2.herokuapp.com/books/', option)
+                .then(res => res.json())
+                .then(res => {
+                    const arr = [res, ...props.bookAPI]
+                    props.setBookAPI(arr)
+                })
+
+            const dropdownContent = document.querySelector(".dropdown-content")
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none"
+            }
+
+            const theChecks = document.querySelectorAll(".the-Checks")
+            theChecks.forEach((ele, index) => {
+                if (ele.checked)
+                    ele.checked = false
+            })
+
+            success("Thêm thành công")
+
+            const dropbtn = document.querySelector(".dropbtn span")
+            dropbtn.innerHTML = "Thể loại"
+            const addTable = document.querySelector(".add-table")
+            addTable.style.display = "none"
+            const overLay = document.querySelector("#overlay")
+            overLay.style.display = "none"
+
+            setName("")
+            setAuthor("")
+            setType([])
+            setPublisher("")
+            setPublishYear("")
+            setPrice("")
+
+            addBtn.style.cursor = "pointer"
+
         }
 
-        await fetch('https://library2.herokuapp.com/books/', option)
-
-        setName("")
-        setAuthor("")
-        setType("")
-        setPublisher("")
-        setPublishYear("")
-        setPrice("")
-        props.handleAPI()
     }
 
     //Render UI
@@ -95,12 +176,9 @@ export function AddBook(props) {
             </div>
             <div className="info-row">
                 <span>Thể loại</span>
-                <input placeholder="Thể loại"
-                    className="input"
-                    value={type}
-                    type="text"
-                    onChange={(e) => setType(e.target.value)}
-                ></input>
+                <SelectType
+                    genres={props.genres}
+                    type={type}></SelectType>
             </div>
             <div className="info-row-differ1">
                 <div className="info-row">

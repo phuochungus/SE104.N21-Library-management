@@ -1,0 +1,193 @@
+.pass-page {
+    display: flex;
+    width: calc(100% - var(--side-bar-width));
+    height: 100%;
+    background: var(--main-font-color);
+
+    .forgot-password {
+        display: flex;
+        width: 615px;
+        height: 385px;
+        background: var(--body-color);
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+        margin: auto;
+
+        .title {
+            font-family: var(--main-font);
+            font-style: bold;
+            font-size: clamp(20px, 1.65vw, 25px);
+            margin-top: 15px;
+        }
+
+        .current-pass {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0 0;
+            position: relative;
+
+
+            span {
+                margin-left: 15px;
+                font-size: clamp(11.2px, 0.92vw, 14px);
+            }
+
+            input {
+                border: 1px solid var(--main-font-color);
+                height: 40px;
+                width: 500px;
+                border-radius: 20px;
+                margin-top: 5px;
+            }
+
+            .pass_option {
+                position: absolute;
+                z-index: 1;
+                cursor: pointer;
+                top: 45%;
+                left: 89%;
+
+                &:hover {
+                    top: 43%;
+                    left: 88.8%;
+                }
+
+                img {
+                    &:hover {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+            }
+        }
+
+        .new-pass {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0 0;
+            position: relative;
+
+
+            span {
+                margin-left: 15px;
+                font-size: clamp(11.2px, 0.92vw, 14px);
+            }
+
+            input {
+                border: 1px solid var(--main-font-color);
+                height: 40px;
+                width: 500px;
+                border-radius: 20px;
+                margin-top: 5px;
+            }
+
+            .pass_option {
+                position: absolute;
+                z-index: 1;
+                cursor: pointer;
+                top: 45%;
+                left: 89%;
+
+                &:hover {
+                    top: 43%;
+                    left: 88.8%;
+                }
+
+                img {
+                    &:hover {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+            }
+        }
+
+        .new-pass-confirm {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0 0;
+            position: relative;
+
+            span {
+                margin-left: 15px;
+                font-size: clamp(11.2px, 0.92vw, 14px);
+            }
+
+            input {
+                border: 1px solid var(--main-font-color);
+                height: 40px;
+                width: 500px;
+                border-radius: 20px;
+                margin-top: 5px;
+            }
+
+            .pass_option {
+                position: absolute;
+                z-index: 1;
+                cursor: pointer;
+                top: 45%;
+                left: 89%;
+
+                &:hover {
+                    top: 43%;
+                    left: 88.8%;
+                }
+
+                img {
+                    &:hover {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+            }
+        }
+
+        .ending-row {
+            margin-top: 25px;
+            display: flex;
+            gap: 20px;
+
+            .close-btn-Change {
+                color: var(--main-font-color);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                width: 100px;
+                background: var(--body-color);
+                border: solid 1px var(--main-font-color);
+                border-radius: 15px;
+
+                &:hover {
+                    background: var(--main-font-color);
+                    color: white;
+                    cursor: pointer;
+                }
+            }
+
+            .add-btn-Change {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                width: 200px;
+                color: white;
+                background: var(--main-font-color);
+                border: solid 1px var(--main-font-color);
+                border-radius: 15px;
+
+                &:hover {
+                    background: white;
+                    ;
+                    color: var(--main-font-color);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

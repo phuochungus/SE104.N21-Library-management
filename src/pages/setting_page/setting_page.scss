@@ -1,4 +1,52 @@
 .setting-page {
+    display: flex;
+    flex-direction: column;
     width: calc(100% - var(--side-bar-width));
     background: var(--main-font-color);
+
+    .main-title {
+        display: flex;
+        height: var(--content-name-height);
+
+
+        span {
+            color: white;
+            font-family: var(--main-font);
+            font-style: bold;
+            font-size: clamp(20px, 1.65vw, 25px);
+            margin: auto;
+        }
+    }
+
+    .options {
+        display: flex;
+        height: 7.5%;
+
+        .option {
+            text-decoration: none;
+            color: var(--main-font-color);
+            background: white;
+            opacity: 0.95;
+            border-right: 1px solid var(--main-font-color);
+            font-size: clamp(12.8px, 1.05vw, 16px);
+            font-style: bold;
+            font-family: var(--main-font);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            border-radius: 15px 15px 0 0;
+
+            &:hover {
+                background: var(--body-color) !important;
+                opacity: 1 !important;
+            }
+        }
+
+        a.active {
+            background: var(--body-color) !important;
+            opacity: 1 !important;
+        }
+
+    }
 }

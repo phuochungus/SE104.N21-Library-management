@@ -1,4 +1,186 @@
+// ------------------Statistics Page--------------------
 .statistics-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     width: calc(100% - var(--side-bar-width));
     background: var(--main-font-color);
+
+    .option {
+        width: 50%;
+        height: 70px;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--main-font-color);
+        font-size: clamp(20px, 1.65vw, 25px);
+        background: var(--body-color);
+        font-family: var(--main-font);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        transition-duration: 0.3s;
+
+        &:hover {
+            background: #F3B28F;
+
+        }
+
+    }
+
+}
+
+// -------------------Pass-Due-Page----------------
+.pass-due-page {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - var(--side-bar-width));
+    background: var(--main-font-color);
+
+    .main-title {
+        display: flex;
+        height: var(--content-name-height);
+
+
+        span {
+            color: white;
+            font-family: var(--main-font);
+            font-style: bold;
+            font-size: clamp(20px, 1.65vw, 25px);
+            margin: auto;
+        }
+    }
+
+    .main-content {
+        height: calc(100% - var(--content-name-height));
+        background: var(--body-color);
+        border-radius: 40px 40px 0 0;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+// -----------------Borrow-By-Genres-------------Page
+.borrow-by-genres-page {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - var(--side-bar-width));
+    background: var(--main-font-color);
+
+    .main-title {
+        display: flex;
+        height: var(--content-name-height);
+
+        span {
+            color: white;
+            font-family: var(--main-font);
+            font-style: bold;
+            font-size: clamp(20px, 1.65vw, 25px);
+            margin: auto;
+        }
+
+        img {
+            position: absolute;
+            right: 45px;
+            top: 30px;
+            cursor: pointer;
+        }
+    }
+
+    .main-content {
+        height: calc(100% - var(--content-name-height));
+        background: var(--body-color);
+        border-radius: 40px 40px 0 0;
+        display: flex;
+        flex-direction: column;
+
+        .search-tool {
+            display: flex;
+            margin: 40px auto 50px;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+
+            .search-info {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    font-size: clamp(14.4px, 1.2vw, 18px);
+                    font-family: var(--main-font);
+                }
+            }
+
+            .statics {
+                margin-left: 50px;
+                width: 200px;
+                background: var(--main-font-color);
+                color: white;
+                padding: 10px 50px;
+                height: 47px;
+
+                &:hover {
+                    background: white;
+                    border: 1px var(--main-font-color) solid;
+                    color: var(--main-font-color)
+                }
+            }
+
+            .export {
+                width: 200px;
+                background: #070B72;
+                color: white;
+                padding: 10px 50px;
+                height: 47px;
+
+                &:hover {
+                    background: white;
+                    border: 1px #070B72 solid;
+                    color: #070B72
+                }
+
+            }
+        }
+
+        .data-table {
+            width: 100%;
+            height: calc(100% - 137px);
+            background: white;
+            gap: 10px;
+        }
+
+        .total {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+
+
+            span:first-child {
+                font-size: clamp(14.4px, 1.2vw, 18px);
+                font-family: var(--main-font);
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 70px;
+                height: 30px;
+                background: var(--main-font-color);
+                color: white;
+                border-radius: 999px;
+            }
+
+            span:last-child {
+                margin-right: 30px;
+            }
+        }
+    }
 }

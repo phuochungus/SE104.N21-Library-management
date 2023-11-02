@@ -1,107 +1,57 @@
 import './App.scss';
-import { Routes, Route, Link } from 'react-router-dom'
-import HomePage from './pages/home_page/home_page'
-import ReaderPage from './pages/reader_page/reader_page'
-import StoragePage from './pages/storage_page/storage_page'
-import ServicePage from './pages/service_page/service_page'
-import StatisticsPage from './pages/statistics_page/statistics_page'
-import SettingPage from './pages/setting_page/setting_page'
-import AccountPage from './pages/account_page/account_page'
-import handleClickPage from "./handleClickPage"
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { createContext, useState } from 'react'
+import Main from './Main'
+import SignInPage from './pages/signIn_page/signIn_page'
+import SignUpPage from './pages/signUp_page/signUp_page'
+import ResetPassPage from './pages/resetPass_page/resetPass'
+
+export const AppContext = createContext();
 
 function App() {
-  return (
-    <div className="body-app">
-      <div className="main-body">
-        {/* <!-- side-bar --> */}
-        <div className="side-bar">
-          <ul className="nav-bar">
-            <li>
-              <Link className="list-item on-display" to="/" onClick={(e) => handleClickPage(e)}>
-                <img
-                  className="icon"
-                  src={require("./assets/nav-bar-icons/home.svg").default}
-                  alt=""
-                />
-                <span>Trang chủ</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="list-item" to="/Reader" onClick={(e) => handleClickPage(e)}>
-                <img
-                  className="icon"
-                  src={require("./assets/nav-bar-icons/author.svg").default}
-                  alt=""
-                />
-                <span>Độc giả</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="list-item" to="/Storage" onClick={(e) => handleClickPage(e)}>
-                <img
-                  className="icon"
-                  src={require("./assets/nav-bar-icons/store.svg").default}
-                  alt=""
-                />
-                <span>Kho sách</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="list-item" to="/Service" onClick={(e) => handleClickPage(e)}>
-                <img
-                  className="icon"
-                  src={require("./assets/nav-bar-icons/service.svg").default}
-                  alt=""
-                />
-                <span>Dịch vụ</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="list-item" to="/Statistics" onClick={(e) => handleClickPage(e)}>
-                <img
-                  className="icon"
-                  src={require("./assets/nav-bar-icons/statistic.svg").default}
-                  alt=""
-                />
-                <span>Thống kê</span>
-              </Link>
-            </li>
-            <li>
-              <Link className="list-item" to="/Setting" onClick={(e) => handleClickPage(e)}>
-                <img
-                  className="icon"
-                  src={require("./assets/nav-bar-icons/setting.svg").default}
-                  alt=""
-                />
-                <span>Tùy chỉnh</span >
-              </Link>
-            </li>
-          </ul>
-          <div className="account">
-            <Link className="list-item" to="/Account" onClick={(e) => handleClickPage(e)}>
-              <span>Tài khoản</span>
-              <img
-                className="icon"
-                src={require("./assets/nav-bar-icons/account.svg").default}
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="sign-out-tab">
-            <Link className="sign-out" to="/">Đăng xuất</Link>
-          </div>
-        </div>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/Reader" element={<ReaderPage />}></Route>
-          <Route path="/Storage" element={<StoragePage />}></Route>
-          <Route path="/Service" element={<ServicePage />}></Route>
-          <Route path="/Statistics" element={<StatisticsPage />}></Route>
-          <Route path="/Setting" element={<SettingPage />}></Route>
-          <Route path="/Account" element={<AccountPage />}></Route>
-        </Routes>
-      </div>
-    </div>
-  );
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isAdmin, setAdmin] = useState(false)
+    const [token, setToken] = useState("")
+    const [userInfo, setUserInfo] = useState({})
+    const [adminInfo, setAdminInfo] = useState({})
+    const [BRInfo, setBRInfo] = useState([])
+
+    function handleClickClose(e) {
+        const div = e.target.parentElement;
+        div.style.opacity = "0";
+        setTimeout(() => div.style.display = "none", 600)
+    }
+
+    return (
+        <AppContext.Provider value={{ isLoggedIn, setIsLoggedIn, isAdmin, setAdmin, token, setToken, userInfo, setUserInfo, BRInfo, setBRInfo, adminInfo, setAdminInfo }}>
+            <Routes>
+                <Route path="*" element={isLoggedIn ? (<Main />) : <Navigate to="/SignIn" />}></Route>
+                <Route path="/SignIn" element={<SignInPage />}></Route>
+                <Route path="/SignUp" element={<SignUpPage />}></Route>
+                <Route path="/ResetPass" element={<ResetPassPage />}></Route>
+            </Routes>
+            <div style={{ "color": "#8F3034" }} className="alert">
+                <div className="warning-icon">
+                    <img
+                        src={require("./assets/icons/warning.svg").default}
+                        alt=""
+                    />
+                </div>
+                <span style={{ "width": "350px" }} className="content-bar"><span style={{ "fontWeight": "1000" }}>Lỗi! </span><span className="content">t might need attention.</span></span>
+                <span onClick={(e) => handleClickClose(e)} className="closebtn">&times;</span>
+            </div>
+            <div style={{ "color": "#8F3034" }} className="success">
+                <div className="success-icon">
+                    <img
+                        src={require("./assets/icons/done.svg").default}
+                        alt=""
+                    />
+                </div>
+                <span style={{ "width": "250px" }} className="content-bar"><span style={{ "fontWeight": "1000" }}></span><span className="content">t might need attention.</span></span>
+                <span onClick={(e) => handleClickClose(e)} className="closebtn">&times;</span>
+            </div>
+        </AppContext.Provider >
+    );
 }
 export default App;
+
